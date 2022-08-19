@@ -9,7 +9,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons";
-import { ThemeSwitcher } from '../ThemeSwitcher';
+import { ThemeSwitcher } from '../../ThemeSwitcher';
 import { useStyles } from "./style";
 
 interface HeaderActionProps {
@@ -20,7 +20,7 @@ interface HeaderActionProps {
   }[];
 }
 
-export function ResponsiveHeader({ links }: HeaderActionProps) {
+export function HeaderFlat({ links }: HeaderActionProps) {
   const { classes } = useStyles();
   const [opened, { toggle }] = useDisclosure(false);
   const items = links.map((link) => {
@@ -69,27 +69,33 @@ export function ResponsiveHeader({ links }: HeaderActionProps) {
       height={0}
       sx={{
         borderBottom: 0,
+        paddingLeft: 0,
+        paddingRight: 0
       }}
       mb={120}
     >
       <Container className={classes.inner} fluid>
         <Group>
-          <Burger
-            opened={opened}
-            onClick={toggle}
-            className={classes.burger}
-            size="sm"
-          />
-          Logo
+          <Group>
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              className={classes.burger}
+              size="sm"
+            />
+            Logo
+          </Group>
+          <Group spacing={20} className={classes.links}>
+            {items}
+          </Group>
         </Group>
-        <Group spacing={5} className={classes.links}>
-          {items}
+        <Group spacing={0}>
+          <ThemeSwitcher />
+          <Button sx={{ height: 60 }}>
+            Get early access
+          </Button>
         </Group>
-        <ThemeSwitcher />
-        <Button sx={{ height: 60 }}>
-          Get early access
-        </Button>
       </Container>
-    </Header>
+    </Header >
   );
 }
