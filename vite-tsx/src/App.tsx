@@ -1,18 +1,20 @@
-import "./App.css";
+import { Paper } from "@mantine/core";
 import { ResponsiveHeader } from "./components/ResponsiveHeader";
 
-export const App = () => {
+export function App() {
   return (
     <div className="App">
-      <ResponsiveHeader
-        links={[
-          {
-            link: "https://github.com",
-            label: "GitHub",
-            links: [{ link: "https://github.com/danihre", label: "Profile" }],
-          },
-        ]}
-      />
+      <Paper p="md" radius={0} style={{ minHeight: "100vh" }}>
+        <ResponsiveHeader
+          links={[
+            {
+              link: "https://github.com",
+              label: "GitHub",
+              links: [{ link: "https://github.com/danihre", label: "Profile" }],
+            },
+          ]}
+        />
+      </Paper>
     </div>
   );
 };

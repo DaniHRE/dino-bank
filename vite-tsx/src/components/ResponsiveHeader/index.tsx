@@ -9,7 +9,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons";
-import { MantineLogo } from "@mantine/ds";
+import { ThemeSwitcher } from '../ThemeSwitcher';
 import { useStyles } from "./style";
 
 interface HeaderActionProps {
@@ -65,7 +65,13 @@ export function ResponsiveHeader({ links }: HeaderActionProps) {
   });
 
   return (
-    <Header height={0} sx={{ borderBottom: 0 }} mb={120}>
+    <Header
+      height={0}
+      sx={{
+        borderBottom: 0,
+      }}
+      mb={120}
+    >
       <Container className={classes.inner} fluid>
         <Group>
           <Burger
@@ -74,12 +80,13 @@ export function ResponsiveHeader({ links }: HeaderActionProps) {
             className={classes.burger}
             size="sm"
           />
-          <MantineLogo size={28} />
+          Logo
         </Group>
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
-        <Button radius="xl" sx={{ height: 30 }}>
+        <ThemeSwitcher />
+        <Button sx={{ height: 60 }}>
           Get early access
         </Button>
       </Container>
