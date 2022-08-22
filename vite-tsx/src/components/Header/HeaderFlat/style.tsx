@@ -5,7 +5,7 @@ const HEADER_HEIGHT = 60;
 export const useStyles = createStyles((theme) => ({
   root: {
     position: 'relative',
-    zIndex: 1,
+    borderBottom: 'none'
   },
 
   dropdown: {
@@ -26,41 +26,36 @@ export const useStyles = createStyles((theme) => ({
 
   header: {
     height: HEADER_HEIGHT,
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    border: 'none',
   },
 
   links: {
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none',
     },
   },
 
   burger: {
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
     },
   },
 
   link: {
-    display: "block",
+    display: 'block',
     lineHeight: 1,
-    // padding: "8px 12px",
+    padding: '8px 12px',
     borderRadius: theme.radius.sm,
-    textDecoration: "none",
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7],
+    textDecoration: 'none',
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
 
-    "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
+    '&:hover': {
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
     },
 
     [theme.fn.smallerThan('sm')]: {
@@ -74,9 +69,5 @@ export const useStyles = createStyles((theme) => ({
       backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
       color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
     },
-  },
-
-  linkLabel: {
-    marginRight: 5,
   },
 }));

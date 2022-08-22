@@ -1,22 +1,24 @@
 import { Paper } from "@mantine/core";
 import { HeaderFlat } from "./components/Header/HeaderFlat";
+import { HeroContent } from "./components/Hero/HeroContent";
 
 export function App() {
   return (
     <div className="App">
-      <Paper p="sm" radius={0} style={{ minHeight: "100vh" }}>
+      <Paper radius={0} style={{ minHeight: "100vh" }}>
         <HeaderFlat
           links={[
             {
-              link: "#",
+              link: "https://github.com/google",
               label: "GitHub"
             },
             {
               link: '#',
-              label: "Teste"
+              label: "Teste",
             }
           ]}
         />
+        <HeroContent />
       </Paper>
     </div>
   );
