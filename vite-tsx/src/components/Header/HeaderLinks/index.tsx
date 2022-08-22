@@ -72,7 +72,7 @@ export function HeaderLinks({ links }: HeaderActionProps) {
       sx={{
         borderBottom: 0,
       }}
-      mb={60}
+      mb={120}
       p="xl"
     >
       <Container className={classes.header} fluid>
