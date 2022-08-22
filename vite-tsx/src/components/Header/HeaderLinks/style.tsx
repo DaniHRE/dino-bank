@@ -3,7 +3,28 @@ import { createStyles } from "@mantine/core"
 const HEADER_HEIGHT = 60;
 
 export const useStyles = createStyles((theme) => ({
-  inner: {
+  root: {
+    position: 'relative',
+    zIndex: 1,
+  },
+
+  dropdown: {
+    position: 'absolute',
+    top: HEADER_HEIGHT,
+    left: 0,
+    right: 0,
+    zIndex: 0,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopWidth: 0,
+    overflow: 'hidden',
+
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
+    },
+  },
+
+  header: {
     height: HEADER_HEIGHT,
     display: "flex",
     justifyContent: "space-between",
@@ -40,6 +61,18 @@ export const useStyles = createStyles((theme) => ({
         theme.colorScheme === "dark"
           ? theme.colors.dark[6]
           : theme.colors.gray[0],
+    },
+
+    [theme.fn.smallerThan('sm')]: {
+      borderRadius: 0,
+      padding: theme.spacing.md,
+    },
+  },
+
+  linkActive: {
+    '&, &:hover': {
+      backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
+      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
     },
   },
 

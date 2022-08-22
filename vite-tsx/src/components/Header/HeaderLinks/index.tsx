@@ -6,6 +6,8 @@ import {
   Group,
   Button,
   Burger,
+  Transition,
+  Paper,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons";
@@ -69,12 +71,11 @@ export function HeaderLinks({ links }: HeaderActionProps) {
       height={0}
       sx={{
         borderBottom: 0,
-        paddingLeft: 0,
-        paddingRight: 0
       }}
-      mb={120}
+      mb={60}
+      p="xl"
     >
-      <Container className={classes.inner} fluid>
+      <Container className={classes.header} fluid>
         <Group>
           <Group>
             <Burger
@@ -83,6 +84,15 @@ export function HeaderLinks({ links }: HeaderActionProps) {
               className={classes.burger}
               size="sm"
             />
+
+            <Transition transition="pop-top-right" duration={200} mounted={opened}>
+              {(styles) => (
+                <Paper className={classes.dropdown} withBorder style={styles}>
+                  {items}
+                </Paper>
+              )}
+            </Transition>
+
             Logo
           </Group>
           <Group spacing={20} className={classes.links}>
