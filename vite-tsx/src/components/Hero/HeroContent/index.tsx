@@ -12,18 +12,13 @@ export function HeroContent() {
                 zIndex={0}
             />
             <Container className={classes.container}>
-                <Title className={classes.title}>A fully featured Bank, for
-                    <Highlight
-                        highlight={['FREE']}
-                        highlightStyles={(theme) => ({
-                            backgroundImage: theme.fn.linearGradient(45, theme.colors.cyan[5], theme.colors.indigo[5]),
-                            fontWeight: 700,
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                        })}
-                    >
-                        FREE
-                    </Highlight> for you.</Title>
+                <Title className={classes.title}><Highlight
+                    highlight={['FREE']}
+                    highlightStyles={(theme) => ({
+                        backgroundImage: theme.fn.linearGradient(45, theme.colors.cyan[5], theme.colors.indigo[5]),
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                    })}> A fully featured Bank, for FREE for you.</Highlight> </Title>
                 <Text className={classes.description} size="xl" mt="xl">
                     Manage your daily finances and spend
                     worldwide with your FREE Dino debit card

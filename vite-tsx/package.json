@@ -24,7 +24,6 @@
     "@mantine/rte": "^5.2.0",
     "@mantine/spotlight": "^5.2.0",
     "dayjs": "^1.11.5",
-    "embla-carousel-react": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

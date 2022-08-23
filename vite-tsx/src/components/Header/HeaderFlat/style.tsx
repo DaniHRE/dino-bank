@@ -5,7 +5,9 @@ const HEADER_HEIGHT = 60;
 export const useStyles = createStyles((theme) => ({
   root: {
     position: 'relative',
-    borderBottom: 'none'
+    borderBottom: 'none',
+    backgroundColor: 'transparent',
+    zIndex: 2
   },
 
   dropdown: {
@@ -13,7 +15,7 @@ export const useStyles = createStyles((theme) => ({
     top: HEADER_HEIGHT,
     left: 0,
     right: 0,
-    zIndex: 0,
+    zIndex: 2,
     borderTopRightRadius: 0,
     borderTopLeftRadius: 0,
     borderTopWidth: 0,

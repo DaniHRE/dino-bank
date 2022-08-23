@@ -30,7 +30,7 @@ export function HeaderFlat({ links }: HeaderResponsiveProps) {
     ));
 
     return (
-        <Header m={"xs"} className={classes.root} height={''}>
+        <Header p={"xl"} className={classes.root} height={''}>
             <Container className={classes.header} fluid>
                 <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
 
