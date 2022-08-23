@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { Header, Container, Group, Burger, Paper, Transition, Button } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { MantineLogo } from '@mantine/ds';
 import { useStyles } from './style';
-import { ThemeSwitcher } from '../../ThemeSwitcher';
 
 interface HeaderResponsiveProps {
     links: { link: string; label: string }[];
@@ -47,7 +45,6 @@ export function HeaderFlat({ links }: HeaderResponsiveProps) {
                 </Group>
 
                 <Group spacing={0}>
-                    <ThemeSwitcher />
                     <Button sx={{ height: 60 }}>
                         Get early access
                     </Button>

@@ -1,6 +1,6 @@
 import { Paper } from "@mantine/core";
-import { HeaderFlat } from "./components/Header/HeaderFlat";
-import { HeroContent } from "./components/Hero/HeroContent";
+import { HeaderFlat } from "../components/Header/HeaderFlat";
+import { HeroContent } from "../components/Hero/HeroContent";
 
 export function App() {
   return (
