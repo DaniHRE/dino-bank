@@ -9,13 +9,13 @@ export function ThemeSwitcher() {
 
     return (
         <ActionIcon
-            variant="outline"
-            color={dark ? 'yellow' : 'blue'}
+            variant="transparent"
+            color={dark ? 'gray' : 'blue'}
             onClick={() => toggleColorScheme()}
             title="Toggle color scheme"
             className={classes.button}
         >
-            {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
+            {dark ? <IconSun size={22} /> : <IconMoonStars size={22} />}
         </ActionIcon>
     );
 }

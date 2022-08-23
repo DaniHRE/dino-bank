@@ -16,10 +16,10 @@ export function Bundler() {
 
     return (
         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-            <MantineProvider theme={{ colorScheme }} >
+            <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme }} >
                 <App />
             </MantineProvider>
-        </ColorSchemeProvider>
+        </ColorSchemeProvider >
 
     );
 }
