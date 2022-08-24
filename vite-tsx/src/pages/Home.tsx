@@ -10,11 +10,7 @@ export function App() {
           links={[
             {
               link: "https://github.com/google",
-              label: "GitHub"
-            },
-            {
-              link: '#',
-              label: "Teste",
+              label: "How it works"
             }
           ]}
         />

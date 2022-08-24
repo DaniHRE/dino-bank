@@ -15,7 +15,7 @@ export const useStyles = createStyles((theme) => ({
     top: HEADER_HEIGHT,
     left: 0,
     right: 0,
-    zIndex: 2,
+    zIndex: 0,
     borderTopRightRadius: 0,
     borderTopLeftRadius: 0,
     borderTopWidth: 0,
@@ -35,6 +35,10 @@ export const useStyles = createStyles((theme) => ({
   },
 
   links: {
+    border: 'none',
+    color: theme.colors.gray[0],
+    textShadow: '1px 1px 1px black',
+
     [theme.fn.smallerThan('sm')]: {
       display: 'none',
     },
@@ -52,9 +56,9 @@ export const useStyles = createStyles((theme) => ({
     padding: '8px 12px',
     borderRadius: theme.radius.sm,
     textDecoration: 'none',
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
+    color: theme.colors.gray[0],
     fontSize: theme.fontSizes.sm,
-    fontWeight: 500,
+    fontWeight: 700,
 
     '&:hover': {
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
@@ -66,10 +70,11 @@ export const useStyles = createStyles((theme) => ({
     },
   },
 
-  linkActive: {
-    '&, &:hover': {
-      backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
-      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
-    },
-  },
+  // UNCOMMENT TO ENABLE ON ACTIVE LINK FEATURE
+  // linkActive: {
+  //   '&, &:hover': {
+  //     backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
+  //     color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
+  //   },
+  // },
 }));
