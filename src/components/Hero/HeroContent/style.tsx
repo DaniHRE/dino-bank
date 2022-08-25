@@ -17,6 +17,13 @@ export const useStyles = createStyles((theme) => ({
         flexDirection: 'row',
     },
 
+    highlight: {
+        color: theme.colors[theme.primaryColor][4],
+        backgroundImage: theme.fn.linearGradient(45, theme.colors.cyan[5], theme.colors.indigo[5]),
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+    },
+
     container: {
         height: '80vh',
         display: 'flex',
@@ -66,9 +73,5 @@ export const useStyles = createStyles((theme) => ({
         [theme.fn.smallerThan('sm')]: {
             width: '100%',
         },
-    },
-
-    highlight: {
-        color: theme.colors[theme.primaryColor][4],
     },
 }));
