@@ -1,6 +1,6 @@
 import { ColorScheme, ColorSchemeProvider, MantineProvider, Paper } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
-import { App } from './pages/Home';
+import { Home } from './pages/Home/Home';
 
 export function Bundler() {
 
@@ -19,7 +19,7 @@ export function Bundler() {
     return (
         // <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
             <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: 'light' }} >
-                <App />
+                <Home />
             </MantineProvider>
         // </ColorSchemeProvider >
 
