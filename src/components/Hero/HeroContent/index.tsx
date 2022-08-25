@@ -1,6 +1,5 @@
-import { Overlay, Container, Title, Button, Text, Highlight, Grid } from '@mantine/core';
+import { Overlay, Container, Title, Button, Text, Highlight, Grid, Transition } from '@mantine/core';
 import { useStyles } from './style';
-import Typewriter from 'typewriter-effect';
 
 export function HeroContent() {
     const { classes } = useStyles();
@@ -17,15 +16,15 @@ export function HeroContent() {
                     <Grid>
                         <Grid.Col span={8}>
                             <Title className={classes.title}>
-                                <Typewriter
-                                    onInit={(typewriter) => {
-                                        typewriter.typeString('A fully featured Bank, for <div className={classes.highlight}>FREE</div> for you.')
-                                            .callFunction(() => {
-                                                console.log('String typed out!');
-                                            })
-                                            .start();
-                                    }}
-                                />
+                                <Highlight
+                                    highlight={['FREE']}
+                                    highlightStyles={(theme) => ({
+                                        backgroundImage: theme.fn.linearGradient(45, theme.colors.cyan[5], theme.colors.indigo[5]),
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                    })}>
+                                    A fully featured Bank, for FREE for you.
+                                </Highlight>
                             </Title>
                             <Text className={classes.description} size="xl" mt="xl">
                                 Manage your daily finances and spend
