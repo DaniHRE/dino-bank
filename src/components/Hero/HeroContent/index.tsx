@@ -12,27 +12,31 @@ export function HeroContent() {
                 zIndex={0}
             />
             <Container className={classes.container}>
-                <Grid>
-                    <Grid.Col>
-                        <Title className={classes.title}><Highlight
-                            highlight={['FREE']}
-                            highlightStyles={(theme) => ({
-                                backgroundImage: theme.fn.linearGradient(45, theme.colors.cyan[5], theme.colors.indigo[5]),
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                            })}> A fully featured Bank, for FREE for you.</Highlight> </Title>
-                        <Text className={classes.description} size="xl" mt="xl">
-                            Manage your daily finances and spend
-                            worldwide with your FREE Dino debit card
-                            no fees attached
-                        </Text>
-                    </Grid.Col>
-                    <Grid.Col>
-                        <Button variant="gradient" size="xl" radius="xl" className={classes.control}>
-                            Get started
-                        </Button>
-                    </Grid.Col>
-                </Grid>
+                <div className={classes.align}>
+                    <Grid>
+                        <Grid.Col span={8}>
+                            <Title className={classes.title}><Highlight
+                                highlight={['FREE']}
+                                highlightStyles={(theme) => ({
+                                    backgroundImage: theme.fn.linearGradient(45, theme.colors.cyan[5], theme.colors.indigo[5]),
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                })}> A fully featured Bank, for FREE for you.</Highlight> </Title>
+                            <Text className={classes.description} size="xl" mt="xl">
+                                Manage your daily finances and spend
+                                worldwide with your FREE Dino debit card
+                                no fees attached
+                            </Text>
+                            <Button variant="gradient" size="xl" radius="xl" className={classes.control}>
+                                Get started
+                            </Button>
+                        </Grid.Col>
+                        <Grid.Col span={4}>
+                            <Text>
+                            </Text>
+                        </Grid.Col>
+                    </Grid>
+                </div>
             </Container>
         </div>
     );

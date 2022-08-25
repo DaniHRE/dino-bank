@@ -12,6 +12,11 @@ export const useStyles = createStyles((theme) => ({
         width: '100vw',
     },
 
+    align: {
+        display: 'flex',
+        flexDirection: 'row',
+    },
+
     container: {
         height: '80vh',
         display: 'flex',
