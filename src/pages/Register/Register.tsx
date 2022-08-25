@@ -1,4 +1,4 @@
-export function Login() {
+export function Register(){
     return(
         null
     );
