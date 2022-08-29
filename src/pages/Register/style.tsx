@@ -1,7 +1,16 @@
 import { createStyles } from "@mantine/core";
 
 export const useStyles = createStyles((theme) => ({
+    root: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
+
     wrapper: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirecton: 'column',
         minHeight: '100vh',
         backgroundSize: 'cover',
         backgroundImage:
@@ -9,9 +18,10 @@ export const useStyles = createStyles((theme) => ({
     },
 
     form: {
+        width: 450,
         borderRight: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[3]
             }`,
-        minHeight: '100vh',
+        minHeight: '50vh',
         maxWidth: 450,
         paddingTop: 80,
 

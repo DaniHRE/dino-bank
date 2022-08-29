@@ -8,8 +8,8 @@ import './index.css'
 
 // PAGES
 import { Home } from './pages/Home/Home';
-import { Login } from './pages/Login/Login';
-import { Register } from './pages/Register/Register';
+import { Login } from './pages/Login';
+import { Register } from './pages/Register';
 
 const rootElement = document.getElementById("root");
 render(
