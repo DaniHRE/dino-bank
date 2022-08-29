@@ -1,6 +1,5 @@
 import {
     Paper,
-    createStyles,
     TextInput,
     PasswordInput,
     Checkbox,
@@ -9,6 +8,7 @@ import {
     Text,
     Anchor,
 } from '@mantine/core';
+import { Link } from 'react-router-dom';
 
 import { useStyles } from './style';
 
@@ -29,8 +29,8 @@ export function Login() {
                 </Button>
 
                 <Text align="center" mt="md">
-                    Don&apos;t have an account?{' '}
-                    <Anchor<'a'> href="#" weight={700} onClick={(event) => event.preventDefault()}>
+                    Don&apos;t have an account?
+                    <Anchor component={Link} to="/react-router" weight={700}>
                         Register
                     </Anchor>
                 </Text>
