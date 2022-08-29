@@ -30,7 +30,7 @@ export function Login() {
 
                 <Text align="center" mt="md">
                     Don&apos;t have an account?
-                    <Anchor component={Link} to="/react-router" weight={700}>
+                    <Anchor component={Link} to="/register" weight={700}>
                         Register
                     </Anchor>
                 </Text>

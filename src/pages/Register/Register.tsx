@@ -8,6 +8,7 @@ import {
     Text,
     Anchor,
 } from '@mantine/core';
+import { Link } from 'react-router-dom';
 
 import { useStyles } from './style';
 
@@ -30,7 +31,7 @@ export function Register() {
 
                 <Text align="center" mt="md">
                     Don&apos;t have an account?{' '}
-                    <Anchor<'a'> href="#" weight={700} onClick={(event) => event.preventDefault()}>
+                    <Anchor component={Link} to="/login">
                         Login
                     </Anchor>
                 </Text>
