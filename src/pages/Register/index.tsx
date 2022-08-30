@@ -22,11 +22,15 @@ export function Register() {
             name: '',
             email: '',
             password: '',
+            confirmPassword: '',
         },
 
         validate: {
-            name: (value) => (value.length < 2 ? 'Name must have at least 2 letters' : null),
-            email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+            name: (value) => (value.length < 8 ? 'Name must have at least 8 letters' : null),
+            email: (value) => (/^[\w-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/.test(value) ? null : 'Invalid email'),
+            confirmPassword: (value, values) => (
+                value !== values.password ? 'Passwords did not match' : null
+            ),
         },
     })
 
@@ -39,13 +43,24 @@ export function Register() {
                         Dino Bank
                     </Title>
 
-                    <TextInput label="Email address" placeholder="hello@gmail.com" size="md" />
-                    <PasswordInput label="Password" placeholder="Create a password" mt="md" size="md" />
-                    <PasswordInput label="Confirm Password" placeholder="Confirm a password" mt="md" size="md" />
-                    <Checkbox label="I Accept the Terms of Use & Privacy Policy." mt="xl" size="md" />
-                    <Button type="submit" fullWidth mt="xl" size="md">
-                        Register
-                    </Button>
+                    <form onSubmit={form.onSubmit((values) => console.log(values))}>
+                        <TextInput label="First Name" placeholder="First Name" size="md"
+                            {...form.getInputProps('name')} />
+
+                        <TextInput label="Email address" placeholder="example@gmail.com" mt="md" size="md"
+                            {...form.getInputProps('email')} />
+
+                        <PasswordInput label="Password" placeholder="Create a password" mt="md" size="md"
+                            {...form.getInputProps('password')} />
+
+                        <PasswordInput label="Confirm Password" placeholder="Confirm a password" mt="md" size="md"
+                            {...form.getInputProps('confirmPassword')} />
+
+                        <Checkbox label="I Accept the Terms of Use & Privacy Policy." mt="xl" size="md" />
+                        <Button type="submit" fullWidth mt="xl" size="md">
+                            Register
+                        </Button>
+                    </form>
 
                     <Text align="center" mt="md">
                         Don&apos;t have an account?{' '}

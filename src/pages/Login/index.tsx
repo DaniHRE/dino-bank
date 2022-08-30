@@ -8,6 +8,7 @@ import {
     Text,
     Anchor,
     Container,
+    Group,
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
 
@@ -26,6 +27,17 @@ export function Login() {
 
                     <TextInput label="Email address" placeholder="example@gmail.com" size="md" />
                     <PasswordInput label="Password" placeholder="Your password" mt="md" size="md" />
+
+                    <Group position="apart" mt={5} className={classes.forgotContainer}>
+                        <Anchor<'a'>
+                            href="#"
+                            onClick={(event) => event.preventDefault()}
+                            className={classes.forgotInput}
+                        >
+                            Forgot your password?
+                        </Anchor>
+                    </Group>
+
                     <Checkbox label="Keep me logged in" mt="xl" size="md" />
                     <Button fullWidth mt="xl" size="md">
                         Login

@@ -42,4 +42,16 @@ export const useStyles = createStyles((theme) => ({
     marginLeft: 'auto',
     marginRight: 'auto',
   },
+
+  forgotContainer: {
+    justifyContent: 'flex-end',
+  },
+
+  forgotInput: {
+    paddingTop: 2,
+    color: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 4 : 6],
+    fontWeight: 500,
+    fontSize: theme.fontSizes.xs,
+  }
+
 }));
