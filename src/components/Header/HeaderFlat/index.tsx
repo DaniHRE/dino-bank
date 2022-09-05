@@ -29,7 +29,7 @@ export function HeaderFlat({ links }: HeaderResponsiveProps) {
                         uppercase >
                         How it Works?
                     </Button>
-                    <Button sx={{ height: 60 }}>
+                    <Button sx={{ height: 50 }}>
                         Get early access
                     </Button>
                 </Group>

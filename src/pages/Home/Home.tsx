@@ -1,6 +1,6 @@
 import { Paper } from "@mantine/core";
 import { HeaderFlat } from "../../components/Header/HeaderFlat";
-import { HeroContent } from "../../components/Hero/HeroContent";
+import { HeroDots } from "../../components/Hero/HeroDots";
 
 export function Home() {
   return (
@@ -14,7 +14,7 @@ export function Home() {
             }
           ]}
         />
-        <HeroContent />
+        <HeroDots />
       </Paper>
     </div>
   );
