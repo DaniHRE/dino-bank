@@ -1,61 +1,67 @@
 import { createStyles } from "@mantine/core";
 
-export const useStyles = createStyles((theme) => ({
-    avatar: {
-        alignItems: 'center',
-    },
+const BREAKPOINT = '@media (max-width: 755px)';
 
-    span: {
-        lineHeight: 'normal',
+export const useStyles = createStyles((theme) => ({
+    wrapper: {
+        position: 'relative',
+        boxSizing: 'border-box',
+        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
     },
 
     inner: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        paddingTop: theme.spacing.xl * 4,
-        paddingBottom: theme.spacing.xl * 4,
-    },
+        position: 'relative',
+        paddingTop: 200,
+        paddingBottom: 120,
 
-    content: {
-        maxWidth: 480,
-        marginRight: theme.spacing.xl * 3,
-
-        [theme.fn.smallerThan('md')]: {
-            maxWidth: '100%',
-            marginRight: 0,
+        [BREAKPOINT]: {
+            paddingBottom: 80,
+            paddingTop: 80,
         },
     },
 
     title: {
-        color: theme.colorScheme === 'dark' ? theme.white : theme.black,
         fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-        fontSize: 44,
-        lineHeight: 1.2,
+        fontSize: 62,
         fontWeight: 900,
+        lineHeight: 1.1,
+        margin: 0,
+        padding: 0,
+        color: theme.colorScheme === 'dark' ? theme.white : theme.black,
 
-        [theme.fn.smallerThan('xs')]: {
-            fontSize: 28,
+        [BREAKPOINT]: {
+            fontSize: 42,
+            lineHeight: 1.2,
+        },
+    },
+
+    description: {
+        marginTop: theme.spacing.xl,
+        fontSize: 24,
+
+        [BREAKPOINT]: {
+            fontSize: 18,
+        },
+    },
+
+    controls: {
+        marginTop: theme.spacing.xl * 2,
+
+        [BREAKPOINT]: {
+            marginTop: theme.spacing.xl,
         },
     },
 
     control: {
-        [theme.fn.smallerThan('xs')]: {
+        height: 54,
+        paddingLeft: 38,
+        paddingRight: 38,
+
+        [BREAKPOINT]: {
+            height: 54,
+            paddingLeft: 18,
+            paddingRight: 18,
             flex: 1,
         },
-    },
-
-    image: {
-        flex: 1,
-
-        [theme.fn.smallerThan('md')]: {
-            display: 'none',
-        },
-    },
-
-    highlight: {
-        position: 'relative',
-        backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
-        borderRadius: theme.radius.sm,
-        padding: '4px 12px',
     },
 }));

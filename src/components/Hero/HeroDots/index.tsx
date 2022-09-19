@@ -5,9 +5,10 @@ import {
     Button,
     Group,
     Text,
-    Tooltip,
-    Avatar,
+    List,
+    ThemeIcon,
 } from '@mantine/core';
+import { IconCheck } from '@tabler/icons';
 import { useStyles } from './style';
 
 export function HeroDots() {
@@ -15,40 +16,64 @@ export function HeroDots() {
     return (
         <div>
             <Container>
-                <div className={classes.inner}>
-                    <div className={classes.content}>
-                        <Title className={classes.title}>
-                            A <span className={classes.highlight}>fully</span> featured <br /> Bank for FREE for you.
-                        </Title>
-                        <Text color="dimmed" mt="lg" mb="lg" weight={600} >
-                            Manage your daily finances and spend
-                            worldwide with your FREE Dino debit card
-                            no fees attached.
-                            Simple Bank for you, use your own account and benefits.
-                        </Text>
+                <h1 className={classes.title}>
+                    A{' '}
+                    <Text component="span" variant="gradient" gradient={{ from: 'blue', to: 'cyan' }} inherit>
+                        fully featured
+                    </Text>{' '}
+                    React components and hooks library
+                </h1>
 
-                        <Avatar.Group spacing="sm" className={classes.avatar}>
-                            <Avatar src="https://cdn-icons-png.flaticon.com/512/3541/3541869.png" radius="xl" />
-                            <Avatar src="https://cdn-icons-png.flaticon.com/512/3541/3541869.png" radius="xl" />
-                            <Avatar src="https://cdn-icons-png.flaticon.com/512/3541/3541869.png" radius="xl" />
-                            <Text color="dimmed" pl="sm" weight={600} className={classes.span}>
-                                4.2M <br />
-                                <Text color="dimmed" weight={600}> Active users from across the world </Text>
-                            </Text>
-                        </Avatar.Group>
+                <Text className={classes.description} color="dimmed">
+                    Build fully functional accessible web applications with ease – Mantine includes more than
+                    100 customizable components and hooks to cover you in any situation
+                </Text>
 
-                        <Group mt={30}>
-                            <Button radius="xl" size="md" className={classes.control}>
-                                Get now
-                            </Button>
-                            <Button variant="default" radius="xl" size="md" className={classes.control}>
-                                Create our Account
-                            </Button>
-                        </Group>
-                    </div>
-                    <Image src="https://ui.mantine.dev/_next/static/media/image.9a65bd94.svg" className={classes.image} />
-                </div>
-            </Container>
-        </div>
+                <List
+                    mt={30}
+                    spacing="sm"
+                    size="sm"
+                    icon={
+                        <ThemeIcon size={20} radius="xl">
+                            <IconCheck size={12} stroke={1.5} />
+                        </ThemeIcon>
+                    }
+                >
+                    <List.Item>
+                        <b>TypeScript based</b> – build type safe applications, all components and hooks
+                        export types
+                    </List.Item>
+                    <List.Item>
+                        <b>Free and open source</b> – all packages have MIT license, you can use Mantine in
+                        any project
+                    </List.Item>
+                    <List.Item>
+                        <b>No annoying focus ring</b> – focus ring will appear only when user navigates with
+                        keyboard
+                    </List.Item>
+                </List>
+
+                <Group className={classes.controls}>
+                    <Button
+                        size="xl"
+                        className={classes.control}
+                        variant="gradient"
+                        gradient={{ from: 'blue', to: 'cyan' }}
+                    >
+                        Get started
+                    </Button>
+
+                    <Button
+                        component="a"
+                        href="https://github.com/mantinedev/mantine"
+                        size="xl"
+                        variant="default"
+                        className={classes.control}
+                    >
+                        GitHub
+                    </Button>
+                </Group>
+            </Container >
+        </div >
     );
 }
