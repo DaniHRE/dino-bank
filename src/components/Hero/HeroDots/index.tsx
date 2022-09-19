@@ -1,12 +1,8 @@
 import {
-    Image,
     Container,
-    Title,
     Button,
     Group,
     Text,
-    List,
-    ThemeIcon,
 } from '@mantine/core';
 import { StatsRing } from '../../Stats/StatsProgress';
 import { IconCheck } from '@tabler/icons';
@@ -29,34 +25,10 @@ export function HeroDots() {
                     impresive interest rates, and app, tools & guides.
                 </Text>
 
-                {/* <List
-                    mt={30}
-                    spacing="sm"
-                    size="sm"
-                    icon={
-                        <ThemeIcon size={20} radius="xl">
-                            <IconCheck size={12} stroke={1.5} />
-                        </ThemeIcon>
-                    }
-                >
-                    <List.Item>
-                        <b>TypeScript based</b> – build type safe applications, all components and hooks
-                        export types
-                    </List.Item>
-                    <List.Item>
-                        <b>Free and open source</b> – all packages have MIT license, you can use Mantine in
-                        any project
-                    </List.Item>
-                    <List.Item>
-                        <b>No annoying focus ring</b> – focus ring will appear only when user navigates with
-                        keyboard
-                    </List.Item>
-                </List> */}
-
                 <StatsRing data={[{
                     label: "New Users",
                     stats: "77,250",
-                    progress: 90,
+                    progress: 60,
                     color: "#3DB2F0",
                     icon: 'up',
                 }, {
