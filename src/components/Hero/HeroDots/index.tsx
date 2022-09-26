@@ -1,12 +1,11 @@
 import {
     Container,
-    Button,
     Group,
     Text,
 } from '@mantine/core';
 import { StatsRing } from '../../Stats/StatsProgress';
-import { IconCheck } from '@tabler/icons';
 import { useStyles } from './style';
+import { MobileStoreButton } from '../../Button/MobileStoreButton';
 
 export function HeroDots() {
     const { classes } = useStyles();
@@ -46,24 +45,17 @@ export function HeroDots() {
                 }]} />
 
                 <Group className={classes.controls}>
-                    <Button
-                        size="xl"
-                        className={classes.control}
-                        variant="gradient"
-                        gradient={{ from: 'blue', to: 'cyan' }}
-                    >
-                        Get started
-                    </Button>
-
-                    <Button
-                        component="a"
-                        href="https://github.com/mantinedev/mantine"
-                        size="xl"
-                        variant="default"
-                        className={classes.control}
-                    >
-                        GitHub
-                    </Button>
+                    <MobileStoreButton data={[{
+                        height: 75,
+                        width: 255,
+                        store: "android",
+                        url: "https://android.com/",
+                    }, {
+                        height: 75,
+                        width: 255,
+                        store: "ios",
+                        url: "https://apple.com/",
+                    }]} />
                 </Group>
             </Container >
         </div >
