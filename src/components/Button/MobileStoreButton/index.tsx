@@ -1,5 +1,4 @@
 import { SimpleGrid } from "@mantine/core";
-import { useStyles } from "./style";
 
 import ios from '../../../assets/icons/Apple_Store_badge_EN.svg';
 import android from '../../../assets/icons/Google_Play_Store_badge_EN.svg';
@@ -13,30 +12,38 @@ interface MobileStoreButtonsProps {
     data: {
         store: 'ios' | 'android';
         url: string;
-        height: number;
-        width: number;
+        height?: number | string;
+        width?: number | string;
     }[];
 }
 
 export function MobileStoreButton({ data }: MobileStoreButtonsProps) {
-    const { classes } = useStyles();
     const buttons = data.map((button) => {
 
+        const BREAKPOINT = '@media (maxWidth: 755px)';
+
         const defaultStyle = {
-            height: 75,
-            width: 255,
+            height: button.height === undefined ? 75 : button.height,
+            width: button.width === undefined ? 255 : button.width,
             background: `url(${imageLinks[button.store]}) no-repeat`,
             backgroundSize: 'contain',
             display: 'inline-block',
             overflow: 'hidden',
             textDecoration: 'none',
-            padding: '5px'
+            padding: '5px',
+
+            // ERROR
+
+            [BREAKPOINT]: {
+                height: 50,
+                width: 50,
+            },
         }
+        
+        console.log(button)
 
         return (
             <div style={{
-                height: button.height,
-                width: button.width,
                 display: 'inline-block'
             }}>
                 <a
@@ -51,7 +58,7 @@ export function MobileStoreButton({ data }: MobileStoreButtonsProps) {
         );
     });
     return (
-        <SimpleGrid cols={3} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+        <SimpleGrid cols={3} breakpoints={[{ maxWidth: 'sm', cols: 2 }]}>
             {buttons}
         </SimpleGrid>
     );

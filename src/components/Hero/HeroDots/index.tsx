@@ -46,13 +46,9 @@ export function HeroDots() {
 
                 <Group className={classes.controls}>
                     <MobileStoreButton data={[{
-                        height: 75,
-                        width: 255,
                         store: "android",
                         url: "https://android.com/",
                     }, {
-                        height: 75,
-                        width: 255,
                         store: "ios",
                         url: "https://apple.com/",
                     }]} />
