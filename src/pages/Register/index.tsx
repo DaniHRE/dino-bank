@@ -8,14 +8,28 @@ import {
     Text,
     Anchor,
     Container,
+    Box,
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { useForm } from '@mantine/form';
+import { IconX, IconCheck} from '@tabler/icons';
 
 import { useStyles } from './style';
+import { PasswordRequirement } from '../../components/Field/PasswordRequirement';
+import { requirements, getStrength } from '../../utils/validatePassword/index'
+import { useState } from 'react';
 
 export function Register() {
     const { classes } = useStyles();
+
+    const [popoverOpened, setPopoverOpened] = useState(false);
+    const [value, setValue] = useState('');
+    const checks = requirements.map((requirement, index) => (
+        <PasswordRequirement key={index} label={requirement.label} meets={requirement.re.test(value)} />
+    ));
+
+    const strength = getStrength(value);
+    const color = strength === 100 ? 'teal' : strength > 50 ? 'yellow' : 'red';
 
     const form = useForm({
         initialValues: {
@@ -33,6 +47,7 @@ export function Register() {
             ),
         },
     })
+
 
     return (
         <div className={classes.wrapper}>
