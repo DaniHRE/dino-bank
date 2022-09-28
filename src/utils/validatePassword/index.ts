@@ -14,5 +14,7 @@ export function getStrength(password: string) {
         }
     });
 
+    console.log("Password Strength: " + Math.max(100 - (100 / (requirements.length + 1)) * multiplier, 10))
+
     return Math.max(100 - (100 / (requirements.length + 1)) * multiplier, 10)
 }

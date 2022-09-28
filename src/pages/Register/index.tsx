@@ -8,28 +8,15 @@ import {
     Text,
     Anchor,
     Container,
-    Box,
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { useForm } from '@mantine/form';
-import { IconX, IconCheck} from '@tabler/icons';
 
 import { useStyles } from './style';
-import { PasswordRequirement } from '../../components/Field/PasswordRequirement';
-import { requirements, getStrength } from '../../utils/validatePassword/index'
-import { useState } from 'react';
+import PasswordStregthMeter from '../../components/Field/PasswordStrengthMeter/index';
 
 export function Register() {
     const { classes } = useStyles();
-
-    const [popoverOpened, setPopoverOpened] = useState(false);
-    const [value, setValue] = useState('');
-    const checks = requirements.map((requirement, index) => (
-        <PasswordRequirement key={index} label={requirement.label} meets={requirement.re.test(value)} />
-    ));
-
-    const strength = getStrength(value);
-    const color = strength === 100 ? 'teal' : strength > 50 ? 'yellow' : 'red';
 
     const form = useForm({
         initialValues: {
@@ -48,7 +35,6 @@ export function Register() {
         },
     })
 
-
     return (
         <div className={classes.wrapper}>
             <Container className={classes.root}>
@@ -59,18 +45,17 @@ export function Register() {
                     </Title>
 
                     <form onSubmit={form.onSubmit((values) => console.log(values))}>
-                        <TextInput label="First Name" placeholder="First Name" size="md"
+                        <TextInput withAsterisk label="First Name" placeholder="First Name" size="md"
                             {...form.getInputProps('name')} />
 
-                        <TextInput label="Email address" placeholder="example@gmail.com" mt="md" size="md"
+                        <TextInput withAsterisk label="Email address" placeholder="example@gmail.com" mt="md" size="md"
                             {...form.getInputProps('email')} />
+                        
+                        <PasswordStregthMeter form={form} />
 
-                        <PasswordInput label="Password" placeholder="Create a password" mt="md" size="md"
-                            {...form.getInputProps('password')} />
-
-                        <PasswordInput label="Confirm Password" placeholder="Confirm a password" mt="md" size="md"
+                        <PasswordInput withAsterisk label="Confirm Password" placeholder="Confirm a password" mt="md" size="md"
                             {...form.getInputProps('confirmPassword')} />
-
+                        
                         <Checkbox label="I Accept the Terms of Use & Privacy Policy." mt="xl" size="md" />
                         <Button type="submit" fullWidth mt="xl" size="md">
                             Register
