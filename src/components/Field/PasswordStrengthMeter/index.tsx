@@ -21,7 +21,7 @@ export default function PasswordStregthMeter({ form } : PasswordStrengthMeterPro
     const color = strength === 100 ? 'teal' : strength > 50 ? 'yellow' : 'red';
 
     const checks = requirements.map((requirement, index) => (
-        <PasswordRequirement key={index} label={requirement.label} meets={requirement.re.test(value)} />
+        <PasswordRequirement key={index} label={requirement.label} meets={requirement.regex.test(value)} />
     ));
 
     return(

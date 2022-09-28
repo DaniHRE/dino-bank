@@ -1,20 +1,18 @@
 export const requirements = [
-    { re: /[0-9]/, label: 'Includes number' },
-    { re: /[a-z]/, label: 'Includes lowercase letter' },
-    { re: /[A-Z]/, label: 'Includes uppercase letter' },
-    { re: /[$&+,:;=?@#|'<>.^*()%!-]/, label: 'Includes special symbol' },
+    { regex: /[0-9]/, label: 'Includes number' },
+    { regex: /[a-z]/, label: 'Includes lowercase letter' },
+    { regex: /[A-Z]/, label: 'Includes uppercase letter' },
+    { regex: /[$&+,:;=?@#|'<>.^*()%!-]/, label: 'Includes special symbol' },
 ];
 
 export function getStrength(password: string) {
-    let multiplier = password.length > 5 ? 0 : 1;
+    let multiplier = password.length > 6 ? 0 : 1;
 
     requirements.forEach((requirement) => {
-        if (!requirement.re.test(password)) {
+        if (!requirement.regex.test(password)) {
             multiplier += 1;
         }
     });
-
-    console.log("Password Strength: " + Math.max(100 - (100 / (requirements.length + 1)) * multiplier, 10))
 
     return Math.max(100 - (100 / (requirements.length + 1)) * multiplier, 10)
 }
