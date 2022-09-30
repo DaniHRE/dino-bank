@@ -35,6 +35,9 @@ export function Register() {
         },
     })
 
+    console.log("Register: ",form.values)
+    console.log("Form changed to: ", form.getInputProps("password"))
+
     return (
         <div className={classes.wrapper}>
             <Container className={classes.root}>
@@ -51,8 +54,8 @@ export function Register() {
                         <TextInput withAsterisk label="Email address" placeholder="example@gmail.com" mt="md" size="md"
                             {...form.getInputProps('email')} />
                         
-                        <PasswordStregthMeter form={form} />
-
+                        <PasswordStregthMeter form={form}/>
+                    
                         <PasswordInput withAsterisk label="Confirm Password" placeholder="Confirm a password" mt="md" size="md"
                             {...form.getInputProps('confirmPassword')} />
                         

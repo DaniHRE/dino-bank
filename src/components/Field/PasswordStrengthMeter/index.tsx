@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { UseForm, UseFormReturnType } from "@mantine/form/lib/types";
-import { PasswordInput, Popover, Progress } from "@mantine/core";
-import { PasswordRequirement } from "../PasswordRequirement";
+import { useState, useEffect } from "react";
+import { UseFormReturnType } from "@mantine/form/lib/types";
+import { Box, PasswordInput, Popover, Progress, Text } from "@mantine/core";
 import { getStrength, requirements } from "../../../utils/validatePassword/index";
+import { IconCheck, IconX } from "@tabler/icons";
 
 interface PasswordStrengthMeterProps {
     form: UseFormReturnType<{
@@ -10,12 +10,29 @@ interface PasswordStrengthMeterProps {
         email: string;
         password: string;
         confirmPassword: string;
-    }>,
+    }>
 }
 
-export default function PasswordStregthMeter({ form } : PasswordStrengthMeterProps) {
+function PasswordRequirement({ meets, label }: { meets: boolean; label: string }) {
+    return (
+        <Text
+            color={meets ? 'teal' : 'red'}
+            sx={{ display: 'flex', alignItems: 'center' }}
+            mt={7}
+            size="sm"
+        >
+            {meets ? <IconCheck size={14} /> : <IconX size={14} />} <Box ml={10}>{label}</Box>
+        </Text>
+    )
+}
+
+export default function PasswordStregthMeter({ form }: PasswordStrengthMeterProps) {
     const [popoverOpened, setPopoverOpened] = useState(false);
     const [value, setValue] = useState('');
+
+    useEffect(()=> {
+        form.setFieldValue('password', value);
+    }, [value]);
 
     const strength = getStrength(value);
     const color = strength === 100 ? 'teal' : strength > 50 ? 'yellow' : 'red';
@@ -24,7 +41,9 @@ export default function PasswordStregthMeter({ form } : PasswordStrengthMeterPro
         <PasswordRequirement key={index} label={requirement.label} meets={requirement.regex.test(value)} />
     ));
 
-    return(
+    console.log("Component: ", form.values);
+
+    return (
         <Popover opened={popoverOpened} position="bottom" width="target" transition="pop">
             <Popover.Target>
                 <div
@@ -32,14 +51,14 @@ export default function PasswordStregthMeter({ form } : PasswordStrengthMeterPro
                     onBlurCapture={() => setPopoverOpened(false)}
                 >
                     <PasswordInput withAsterisk label="Password" placeholder="Create a password" mt="md" size="md"
-                        {...form.getInputProps('password')} value={value} onChange={(event) => setValue(event.currentTarget.value)}/>
+                         onChange={(event) => {setValue(event.currentTarget.value)}} />
                 </div>
             </Popover.Target>
             <Popover.Dropdown>
-                <Progress color={color} value={strength} size={5} style={{ marginBottom: 10  }} />
+                <Progress color={color} value={strength} size={5} style={{ marginBottom: 10 }} />
                 <PasswordRequirement label="Includes at least 6 characters" meets={value.length > 5} />
                 {checks}
             </Popover.Dropdown>
-        </Popover>    
+        </Popover>
     );
 }
