@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { UseFormReturnType } from "@mantine/form/lib/types";
 import { Box, PasswordInput, Popover, Progress, Text } from "@mantine/core";
 import { getStrength, requirements } from "../../../utils/validatePassword/index";
-import { IconCheck, IconX } from "@tabler/icons";
+import { IconCircleCheck, IconPlaystationX } from "@tabler/icons";
 
 interface PasswordStrengthMeterProps {
     form: UseFormReturnType<{
@@ -21,7 +21,7 @@ function PasswordRequirement({ meets, label }: { meets: boolean; label: string }
             mt={7}
             size="sm"
         >
-            {meets ? <IconCheck size={14} /> : <IconX size={14} />} <Box ml={10}>{label}</Box>
+            {meets ? <IconCircleCheck size={16} /> : <IconPlaystationX size={16} />} <Box ml={10}>{label}</Box>
         </Text>
     )
 }
