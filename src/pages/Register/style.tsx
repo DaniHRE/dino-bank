@@ -4,6 +4,11 @@ export const useStyles = createStyles((theme) => ({
     root: {
         display: 'flex',
         justifyContent: 'center',
+        
+        [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+            paddingLeft: 0,
+            paddingRight: 0,
+        },
     },
 
     wrapper: {
@@ -13,19 +18,19 @@ export const useStyles = createStyles((theme) => ({
         flexDirecton: 'column',
         minHeight: '100vh',
         backgroundSize: 'cover',
-        backgroundImage:
-            'url(https://source.unsplash.com/random/1920x1080/?landscape)',
+        backgroundImage: 'url(https://source.unsplash.com/random/1920x1080/?landscape)',
     },
 
     form: {
-        width: 450,
         borderRight: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[3]
             }`,
-        minHeight: '50vh',
+        width: 450,
         maxWidth: 450,
         paddingTop: 80,
 
         [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+            width: '100vw',
+            height: '100vh',
             maxWidth: '100%',
         },
     },
