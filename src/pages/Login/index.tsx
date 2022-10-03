@@ -19,7 +19,7 @@ export function Login() {
     return (
         <div className={classes.wrapper}>
             <Container className={classes.root}>
-                <Paper className={classes.form} m="lg" radius={0} p={40} shadow="xs">
+                <Paper className={classes.form} radius={0} p={40} shadow="xs">
 
                     <Title order={2} className={classes.title} align="center" mt="md" mb={50}>
                         Dino Bank
