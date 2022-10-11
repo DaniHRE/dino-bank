@@ -2,7 +2,6 @@ import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { MantineProvider } from '@mantine/core';
-import './index.css'
 
 import { Home } from './pages/Home/Home';
 import { Login } from './pages/Login';
