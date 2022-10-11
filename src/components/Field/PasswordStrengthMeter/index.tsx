@@ -26,7 +26,7 @@ function PasswordRequirement({ meets, label }: { meets: boolean; label: string }
     )
 }
 
-export default function PasswordStregthMeter({ form }: PasswordStrengthMeterProps) {
+export function PasswordStregthMeter({ form }: PasswordStrengthMeterProps) {
     const [popoverOpened, setPopoverOpened] = useState(false);
     const [value, setValue] = useState('');
 
