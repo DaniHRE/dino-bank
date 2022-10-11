@@ -69,12 +69,5 @@ export const useStyles = createStyles((theme) => ({
       padding: theme.spacing.md,
     },
   },
-
-  // UNCOMMENT TO ENABLE ON ACTIVE LINK FEATURE
-  // linkActive: {
-  //   '&, &:hover': {
-  //     backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
-  //     color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
-  //   },
-  // },
+  
 }));

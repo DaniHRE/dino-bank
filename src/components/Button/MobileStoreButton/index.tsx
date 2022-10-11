@@ -32,8 +32,6 @@ export function MobileStoreButton({ data }: MobileStoreButtonsProps) {
             textDecoration: 'none',
             padding: '5px',
 
-            // ERROR
-
             [BREAKPOINT]: {
                 height: 50,
                 width: 50,
