@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from '@mantine/form';
 
 import { useStyles } from './style';
-import PasswordStregthMeter from '../../components/Field/PasswordStrengthMeter/index';
+import { PasswordStregthMeter } from '../../components/Field/PasswordStrengthMeter/index';
 
 export function Register() {
     const { classes } = useStyles();
