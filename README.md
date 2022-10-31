@@ -6,8 +6,8 @@ I'm new to frontend, so not that many skills, so don't expect too much from the 
 
 ## Goals to complete
 
-- [x] Home page
+- [ ] Home page | Current Development
 - [x] Login
-- [ ] Register 
+- [x] Register 
 - [ ] Appshell interface
 - [ ] Responsive page
