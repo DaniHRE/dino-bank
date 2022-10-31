@@ -37,8 +37,6 @@ export function MobileStoreButton({ data }: MobileStoreButtonsProps) {
                 width: 50,
             },
         }
-        
-        console.log(button)
 
         return (
             <div style={{
