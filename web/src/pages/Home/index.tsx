@@ -1,13 +1,26 @@
 import { Paper } from "@mantine/core";
 import { DefaultHeader } from "../../components/Header";
 import { HeroDots } from "../../components/Hero/HeroDots";
+import Fullpage, { FullPageSections, FullpageSection } from '@ap.cx/react-fullpage'
 
 export function Home() {
   return (
     <div className="App">
       <Paper radius={0} style={{ minHeight: "100vh" }}>
-        <DefaultHeader />
-        <HeroDots />
+        <Fullpage>
+          <FullPageSections>
+
+            <FullpageSection>
+              <DefaultHeader />
+              <HeroDots />
+            </FullpageSection>
+
+            <FullpageSection>
+              Roberto
+            </FullpageSection>
+
+          </FullPageSections>
+        </Fullpage>
       </Paper>
     </div>
   );

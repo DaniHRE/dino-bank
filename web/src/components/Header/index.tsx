@@ -8,7 +8,7 @@ export function DefaultHeader() {
     const { classes, cx } = useStyles();
 
     return (
-        <Header height={56} mb={120}>
+        <Header height={56}>
             <Container className={classes.inner}>
                 <Burger opened={opened} onClick={toggle} size="sm" className={classes.burger} />
                 <Group className={classes.links} spacing={5}>

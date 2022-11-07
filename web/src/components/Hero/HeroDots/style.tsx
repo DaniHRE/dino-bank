@@ -3,21 +3,21 @@ import { createStyles } from "@mantine/core";
 const BREAKPOINT = '@media (max-width: 755px)';
 
 export const useStyles = createStyles((theme) => ({
-    wrapper: {
-        position: 'relative',
-        boxSizing: 'border-box',
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
+    inner: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        paddingTop: theme.spacing.xl * 4,
+        paddingBottom: theme.spacing.xl * 4,
     },
 
-    inner: {
-        position: 'relative',
-        paddingTop: 200,
-        paddingBottom: 120,
+    content: {
+        maxWidth: 480,
+        marginRight: theme.spacing.xl * 3,
 
-        [BREAKPOINT]: {
-            paddingBottom: 80,
-            paddingTop: 80,
-        },
+        [theme.fn.smallerThan('md')]: {
+            maxWidth: '100%',
+            marginRight: 0,
+        }
     },
 
     title: {
