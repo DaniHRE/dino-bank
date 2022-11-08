@@ -16,8 +16,17 @@ export function Home() {
               <HeroDots />
             </FullpageSection>
 
-            <FullpageSection style={{ display: 'flex', placeItems: 'center', justifyContent: 'center' }}>
-              <BankCard />
+            <FullpageSection>
+              <div
+                style={{
+                  height: '100vh',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <BankCard />
+              </div>
             </FullpageSection>
 
           </FullPageSections>
