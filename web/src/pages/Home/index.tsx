@@ -2,6 +2,7 @@ import { Paper } from "@mantine/core";
 import { DefaultHeader } from "../../components/Header";
 import { HeroDots } from "../../components/Hero/HeroDots";
 import Fullpage, { FullPageSections, FullpageSection } from '@ap.cx/react-fullpage'
+import { BankCard } from "../../components/BankCard";
 
 export function Home() {
   return (
@@ -15,8 +16,8 @@ export function Home() {
               <HeroDots />
             </FullpageSection>
 
-            <FullpageSection>
-              Roberto
+            <FullpageSection style={{ display: 'flex', placeItems: 'center', justifyContent: 'center' }}>
+              <BankCard />
             </FullpageSection>
 
           </FullPageSections>

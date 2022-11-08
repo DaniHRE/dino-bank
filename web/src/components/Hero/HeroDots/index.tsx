@@ -1,8 +1,4 @@
-import {
-    Container,
-    Group,
-    Text,
-} from '@mantine/core';
+import { Container, Grid, Text, } from '@mantine/core';
 import { StatsRing } from '../../Stats/StatsProgress';
 import { useStyles } from './style';
 import { MobileStoreButton } from '../../Button/MobileStoreButton';
@@ -11,9 +7,9 @@ export function HeroDots() {
     const { classes } = useStyles();
     return (
         <div>
-            <Container>
-                <div className={classes.inner}>
-                    <div className={classes.content}>
+            <Container my="lg">
+                <Grid>
+                    <Grid.Col xs={12}>
                         <h1 className={classes.title}>
                             Work With Your{' '}
                             <Text component="span" variant="gradient" gradient={{ from: 'blue', to: 'cyan' }} inherit>
@@ -45,7 +41,6 @@ export function HeroDots() {
                             color: "#324AF8",
                             icon: 'up',
                         }]} />
-
                         {/* <Group className={classes.controls}>
                             <MobileStoreButton data={[{
                                 store: "android",
@@ -55,9 +50,8 @@ export function HeroDots() {
                                 url: "https://apple.com/",
                             }]} />
                         </Group> */}
-                    </div>
-                    Roberto's Show
-                </div>
+                    </Grid.Col>
+                </Grid>
             </Container >
         </div>
     );
