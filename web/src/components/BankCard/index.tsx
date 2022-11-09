@@ -1,9 +1,6 @@
 import Hover from 'react-3d-hover';
+import { useState } from 'react';
 import './styles.scss';
-
-import defaultCardBackground from '../../assets/svg/card-background.svg';
-import defaultChipIcon from '../../assets/icons/chip.png';
-import defaultBrandIcon from '../../assets/icons/bank-icon.png';
 
 interface BankCardProps {
     image?: string;
@@ -13,18 +10,26 @@ interface BankCardProps {
     expireDate?: string;
 }
 
+const defaultChipIcon = '../../../public/icons/chip.png';
+const defaultBrandIcon = '../../public/icons/bank-icon.png';
+
 export function BankCard({ image, chipIcon, brandIcon, costumerName, expireDate }: BankCardProps) {
-    image = !image ? `url(${defaultCardBackground})` : `url(${image})`
     chipIcon = !chipIcon ? defaultChipIcon : chipIcon
     brandIcon = !brandIcon ? defaultBrandIcon : brandIcon
     costumerName = !costumerName ? `FULL NAME` : costumerName
     expireDate = !expireDate ? `00/00` : expireDate
+    const [isCardFlipped, setIsCardFliped] = useState(false);
 
-    const isCardFlipped = false;
+    const cardBackgroundName = () => {
+        let random = Math.floor(Math.random() * 20 + 1);
+        return `${random}.jpeg`;
+    };
+
+    const BACKGROUND_IMG = cardBackgroundName();
 
     return (
-        <Hover>
-            <div className={'card-item ' + (isCardFlipped ? '-active' : '')}>
+        <Hover scale={1.05} speed={1500} perspective={900} >
+            <div className={'card-item ' + (isCardFlipped ? '-active' : '')} onClick={() => {setIsCardFliped(!isCardFlipped)}}>
                 <div className="card-item__side -front">
                     <div
                         className={`card-item__focus`}
@@ -32,7 +37,7 @@ export function BankCard({ image, chipIcon, brandIcon, costumerName, expireDate 
                     <div className="card-item__cover">
                         <img
                             alt=""
-                            src={`${defaultCardBackground}`}
+                            src={`../../../public/card-background/${BACKGROUND_IMG}`}
                             className="card-item__bg"
                         />
                     </div>
@@ -40,13 +45,13 @@ export function BankCard({ image, chipIcon, brandIcon, costumerName, expireDate 
                     <div className="card-item__wrapper">
                         <div className="card-item__top">
                             <img
-                                src={`${chipIcon}`}
                                 alt=""
+                                src={`${defaultChipIcon}`}
                                 className="card-item__chip"
                             />
                             <div className="card-item__type">
                                 <img
-                                    src={`${defaultBrandIcon}`}
+                                    src={`../../../public/${defaultBrandIcon}`}
                                     className="card-item__typeImg"
                                 />
                             </div>
@@ -82,7 +87,7 @@ export function BankCard({ image, chipIcon, brandIcon, costumerName, expireDate 
                     <div className="card-item__cover">
                         <img
                             alt=""
-                            src={`${defaultCardBackground}`}
+                            src={`../../../public/card-background/${BACKGROUND_IMG}`}
                             className="card-item__bg"
                         />
                     </div>

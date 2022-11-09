@@ -10,13 +10,13 @@
     width: 500px;
 
     @media screen and (max-width: 480px) {
-        max-width: 310px;
-        height: 220px;
+        max-width: 330px;
+        height: 230px;
         width: 90%;
     }
 
     @media screen and (max-width: 360px) {
-        height: 180px;
+        height: 200px;
     }
 
     &.-active {
@@ -27,7 +27,7 @@
 
             &.-back {
                 transform: perspective(1000px) rotateY(0) rotateX(0deg) rotateZ(0deg);
-                // box-shadow: 0 20px 50px 0 rgba(81, 88, 206, 0.65);
+                box-shadow: 0 20px 50px 0 rgba(81, 88, 206, 0.65);
             }
         }
     }

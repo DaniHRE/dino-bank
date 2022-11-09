@@ -10,6 +10,13 @@ export const useStyles = createStyles((theme) => ({
         paddingBottom: theme.spacing.xl * 4,
     },
 
+    center: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '87vh',
+    },
+
     content: {
         maxWidth: 480,
         marginRight: theme.spacing.xl * 3,

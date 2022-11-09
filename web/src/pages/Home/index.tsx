@@ -1,8 +1,9 @@
+import './home.scss';
 import { Paper } from "@mantine/core";
+import { BankCard } from '../../components/BankCard';
 import { DefaultHeader } from "../../components/Header";
 import { HeroDots } from "../../components/Hero/HeroDots";
-import Fullpage, { FullPageSections, FullpageSection } from '@ap.cx/react-fullpage'
-import { BankCard } from "../../components/BankCard";
+import Fullpage, { FullPageSections, FullpageSection } from '@ap.cx/react-fullpage';
 
 export function Home() {
   return (
