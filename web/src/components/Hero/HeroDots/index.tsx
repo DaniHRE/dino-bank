@@ -7,7 +7,7 @@ export function HeroDots() {
     const { classes } = useStyles();
     return (
         <div>
-            <Container my="lg">
+            <Container my="lg" className={classes.center}>
                 <Grid>
                     <Grid.Col xs={12}>
                         <h1 className={classes.title}>
@@ -52,7 +52,7 @@ export function HeroDots() {
                         </Group> */}
                     </Grid.Col>
                 </Grid>
-            </Container >
+            </Container>
         </div>
     );
 }
