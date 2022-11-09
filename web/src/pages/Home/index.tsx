@@ -1,8 +1,10 @@
 import './home.scss';
+import Hover from 'react-3d-hover';
 import { Paper } from "@mantine/core";
-import { BankCard } from '../../components/BankCard';
 import { DefaultHeader } from "../../components/Header";
 import { HeroDots } from "../../components/Hero/HeroDots";
+import App from '../../components/NewBankCard/App';
+import Card from '../../components/NewBankCard/screens/MainScreen/components/card';
 import Fullpage, { FullPageSections, FullpageSection } from '@ap.cx/react-fullpage';
 
 export function Home() {
@@ -26,7 +28,17 @@ export function Home() {
                   justifyContent: 'center'
                 }}
               >
-                <BankCard />
+                {/* <BankCard /> */}
+                <App />
+                {/* <Hover scale={1.05} speed={1500} perspective={900} >
+                  <Card
+                    cardHolder={'FULL NAME'}
+                    cardNumber={'0000 0000 0000 0000'}
+                    cardMonth={'00'}
+                    cardYear={'0000'}
+                    cardCvv={'000'}
+                  />
+                </Hover> */}
               </div>
             </FullpageSection>
 
