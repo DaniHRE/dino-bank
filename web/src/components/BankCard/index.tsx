@@ -11,7 +11,7 @@ interface BankCardProps {
 }
 
 const defaultChipIcon = '../../../public/icons/chip.png';
-const defaultBrandIcon = '../../public/icons/bank-icon.png';
+const defaultBrandIcon = '../../public/card-type/bank-icon.png';
 
 export function BankCard({ image, chipIcon, brandIcon, costumerName, expireDate }: BankCardProps) {
     chipIcon = !chipIcon ? defaultChipIcon : chipIcon
