@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, LegacyRef } from 'react';
 import {
     CSSTransition,
     TransitionGroup,
@@ -30,10 +30,9 @@ interface CardProps {
     cardYear: string,
     cardCvv: string,
     currentFocusedElm?: null | any,
-    onCardElementClick?: Function | any,
-    cardNumberRef?: React.MutableRefObject<undefined>,
-    cardHolderRef?: React.MutableRefObject<undefined>,
-    cardDateRef?: React.MutableRefObject<undefined>,
+    cardNumberRef?: LegacyRef<HTMLLabelElement> | undefined,
+    cardHolderRef?: LegacyRef<HTMLLabelElement> | undefined,
+    cardDateRef?: LegacyRef<HTMLLabelElement> | undefined,
 }
 
 const Card = ({
@@ -43,7 +42,6 @@ const Card = ({
     cardYear,
     cardCvv,
     currentFocusedElm,
-    onCardElementClick,
     cardNumberRef,
     cardHolderRef,
     cardDateRef

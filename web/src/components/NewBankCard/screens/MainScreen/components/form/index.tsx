@@ -1,5 +1,4 @@
-import { Input, NumberInput } from '@mantine/core';
-import React, { useEffect, useState, useRef } from 'react';
+import { useState, useRef, LegacyRef } from 'react';
 
 const currentYear = new Date().getFullYear();
 const monthsArr = Array.from({ length: 12 }, (x, i) => {
@@ -11,11 +10,12 @@ const yearsArr = Array.from({ length: 9 }, (_x, i) => currentYear + i);
 interface CFormProps {
     cardMonth: string,
     cardYear: string,
-    onUpdateState: (keyName: string | number, value: any) => void,
-    cardNumberRef: React.MutableRefObject<undefined>,
-    cardHolderRef: React.MutableRefObject<undefined>,
-    cardDateRef: React.MutableRefObject<undefined>,
-    onCardInputFocus: (_event: any, inputName: string | number) => void,
+    onUpdateState: (keyName: any, value: any) => void,
+    cardNumberRef: LegacyRef<HTMLInputElement> | undefined,
+    cardHolderRef: LegacyRef<HTMLInputElement> | undefined,
+    cardDateRef: LegacyRef<HTMLSelectElement> | undefined,
+    cardCvv: LegacyRef<HTMLSelectElement> | undefined,
+    onCardInputFocus: (_event: any, inputName: any) => void,
     onCardInputBlur: () => void,
     children: any,
 }
@@ -27,12 +27,12 @@ export default function CForm({
     cardNumberRef,
     cardHolderRef,
     cardDateRef,
+    cardCvv,
     onCardInputFocus,
     onCardInputBlur,
     children,
 }: CFormProps) {
     const [cardNumber, setCardNumber] = useState('');
-    const cardCvv = useRef<string>('');
 
     const handleFormChange = (event: { target: { name: any; value: any; }; }) => {
         const { name, value } = event.target;
@@ -74,27 +74,6 @@ export default function CForm({
         onUpdateState('isCardFlipped', false);
     };
 
-    // NOTE: Currently the cursor on the card number field gets reset if we remove a number, the code bellow was used
-    // in class components, need to transform this to work with functional components.
-    // getSnapshotBeforeUpdate() {
-    //     return this.props.cardNumberRef.current.selectionStart;
-    // }
-
-    // const componentDidUpdate = function (prevProps, prevState, cursorIdx) {
-    //     const node = cardNumberRef.current;
-    //     const { cardNumber: cardNum } = state;
-    //     const { cardNumber: prevCardNum } = prevState;
-    //     if (
-    //         cardNum.length > prevCardNum.length &&
-    //         cardNum[cursorIdx - 1] === ' '
-    //     ) {
-    //         cursorIdx += 1;
-    //     } else if (prevCardNum[cursorIdx - 1] === ' ') {
-    //         cursorIdx -= 1;
-    //     }
-    //     node.selectionStart = node.selectionEnd = cursorIdx;
-    // };
-
     return (
         <div className="card-form">
             <div className="card-list">{children}</div>
@@ -109,7 +88,7 @@ export default function CForm({
                         className="card-input__input"
                         autoComplete="off"
                         onChange={onCardNumberChange}
-                        maxLength="19"
+                        maxLength={19}
                         ref={cardNumberRef}
                         onFocus={(e) => onCardInputFocus(e, 'cardNumber')}
                         onBlur={onCardInputBlur}
@@ -192,7 +171,7 @@ export default function CForm({
                             <input
                                 type="tel"
                                 className="card-input__input"
-                                maxLength="4"
+                                maxLength={4}
                                 autoComplete="off"
                                 name="cardCvv"
                                 onChange={handleFormChange}

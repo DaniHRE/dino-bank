@@ -29,16 +29,16 @@ export function Home() {
                 }}
               >
                 {/* <BankCard /> */}
-                <App />
-                {/* <Hover scale={1.05} speed={1500} perspective={900} >
-                  <Card
+                {/* <Hover scale={1.05} speed={1500} perspective={900} > */}
+                  <App />
+                  {/* <Card
                     cardHolder={'FULL NAME'}
                     cardNumber={'0000 0000 0000 0000'}
                     cardMonth={'00'}
                     cardYear={'0000'}
                     cardCvv={'000'}
-                  />
-                </Hover> */}
+                  /> */}
+                {/* </Hover> */}
               </div>
             </FullpageSection>
 
