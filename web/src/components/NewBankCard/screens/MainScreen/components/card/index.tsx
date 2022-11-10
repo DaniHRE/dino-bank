@@ -29,6 +29,8 @@ interface CardProps {
     cardMonth: string,
     cardYear: string,
     cardCvv: string,
+    isCardFlipped: boolean,
+    onUpdateState: (keyName: any, value: any) => void,
     currentFocusedElm?: null | any,
     cardNumberRef?: LegacyRef<HTMLLabelElement> | undefined,
     cardHolderRef?: LegacyRef<HTMLLabelElement> | undefined,
@@ -41,13 +43,14 @@ const Card = ({
     cardMonth,
     cardYear,
     cardCvv,
+    isCardFlipped,
+    onUpdateState,
     currentFocusedElm,
     cardNumberRef,
     cardHolderRef,
-    cardDateRef
+    cardDateRef,
 }: CardProps) => {
     const [style, setStyle] = useState(null);
-    const [isCardFlipped, setIsCardFlipped] = useState(false);
 
     const cardType = (cardNumber: string) => {
         const number = cardNumber;
@@ -85,7 +88,6 @@ const Card = ({
 
     const maskCardNumber = (cardNumber: string) => {
         let cardNumberArr = cardNumber.split('');
-        console.log(cardNumberArr)
         cardNumberArr.forEach((val: any, index: number) => {
             if (index > 4 && index < 14) {
                 if (cardNumberArr[index] !== ' ') {
@@ -98,7 +100,7 @@ const Card = ({
     };
 
     return (
-        <div className={'card-item ' + (isCardFlipped ? '-active' : '')} onClick={() => { setIsCardFlipped(!isCardFlipped) }}>
+        <div className={'card-item ' + (isCardFlipped ? '-active' : '')} onClick={() => { onUpdateState('isCardFlipped', !isCardFlipped); }}>
             <div className="card-item__side -front">
                 <div
                     className={`card-item__focus ${currentFocusedElm ? `-active` : ``

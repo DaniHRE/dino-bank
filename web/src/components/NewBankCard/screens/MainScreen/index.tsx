@@ -8,7 +8,8 @@ interface IinitialState {
     cardHolder: string,
     cardMonth: string,
     cardYear: string,
-    cardCvv: string
+    cardCvv: string,
+    isCardFlipped: boolean,
 }
 
 const initialState: IinitialState = {
@@ -16,7 +17,8 @@ const initialState: IinitialState = {
     cardHolder: 'FULL NAME',
     cardMonth: '',
     cardYear: '',
-    cardCvv: ''
+    cardCvv: '',
+    isCardFlipped: false,
 };
 
 const MainScreen = () => {
@@ -24,7 +26,7 @@ const MainScreen = () => {
     const [currentFocusedElm, setCurrentFocusedElm] = useState<React.RefObject<HTMLLabelElement> | null>(null);
 
     const updateStateValues = useCallback(
-        (keyName: keyof typeof initialState, value: string) => {
+        (keyName: keyof typeof initialState, value: boolean) => {
             setState({
                 ...state,
                 [keyName]: value || initialState[keyName]
@@ -77,6 +79,8 @@ const MainScreen = () => {
                         cardMonth={state.cardMonth}
                         cardYear={state.cardYear}
                         cardCvv={state.cardCvv}
+                        isCardFlipped={state.isCardFlipped}
+                        onUpdateState={updateStateValues}
                         currentFocusedElm={currentFocusedElm}
                         cardNumberRef={cardElementsRef.cardNumber}
                         cardHolderRef={cardElementsRef.cardHolder}

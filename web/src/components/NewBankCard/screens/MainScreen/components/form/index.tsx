@@ -14,7 +14,7 @@ interface CFormProps {
     cardNumberRef: LegacyRef<HTMLInputElement> | undefined,
     cardHolderRef: LegacyRef<HTMLInputElement> | undefined,
     cardDateRef: LegacyRef<HTMLSelectElement> | undefined,
-    cardCvv: LegacyRef<HTMLSelectElement> | undefined,
+    cardCvv: LegacyRef<HTMLInputElement> | undefined,
     onCardInputFocus: (_event: any, inputName: any) => void,
     onCardInputBlur: () => void,
     children: any,
