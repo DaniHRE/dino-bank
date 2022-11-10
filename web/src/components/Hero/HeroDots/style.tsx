@@ -29,7 +29,7 @@ export const useStyles = createStyles((theme) => ({
 
     title: {
         fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-        fontSize: 62,
+        fontSize: 73,
         fontWeight: 900,
         lineHeight: 1.1,
         margin: 0,
