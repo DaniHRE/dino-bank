@@ -1,4 +1,4 @@
-# DINO BANK UI 
+# DINO BANK
 
 Hi, this is my frontend project, a simple bank frontend, made using React, Typescript and some libs.
 The goal of this project is, represent a simple and minimalist User Interface and provide a simple and objective User Experience.
