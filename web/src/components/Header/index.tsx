@@ -1,11 +1,13 @@
-import { Header, Container, Group, Burger, ActionIcon, Text, Anchor } from '@mantine/core';
-import { IconBrandGithub, IconBrandLinkedin, IconBrandInstagram } from '@tabler/icons';
+import { Header, Container, Group, Burger, ActionIcon, Text, Anchor, Switch, useMantineColorScheme, useMantineTheme } from '@mantine/core';
+import { IconBrandGithub, IconBrandLinkedin, IconBrandInstagram, IconSun, IconMoonStars } from '@tabler/icons';
 import { useDisclosure } from '@mantine/hooks';
 import { useStyles } from './style';
 
 export function DefaultHeader() {
     const [opened, { toggle }] = useDisclosure(false);
     const { classes, cx } = useStyles();
+    const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+    const theme = useMantineTheme();
 
     return (
         <Header height={56}>
@@ -24,16 +26,20 @@ export function DefaultHeader() {
 
                 <Text weight={700}>Dino Bank</Text>
 
-                <Group spacing={0} className={classes.social} position="right" noWrap>
+                <Group spacing={5} className={classes.social} position="right" noWrap>
                     <ActionIcon component="a" href="https://github.com/danihre/dino-bank" size="lg">
                         <IconBrandGithub size={18} stroke={1.5} />
-                    </ActionIcon>
-                    <ActionIcon component="a" href="https://instagram.com/dani_rod05" size="lg">
-                        <IconBrandInstagram size={18} stroke={1.5} />
                     </ActionIcon>
                     <ActionIcon component="a" href="https://linkedin.com/in/danielhre" size="lg">
                         <IconBrandLinkedin size={18} stroke={1.5} />
                     </ActionIcon>
+                    <Switch
+                        checked={colorScheme === 'dark'}
+                        onChange={() => toggleColorScheme()}
+                        size="md"
+                        onLabel={<IconSun color={theme.white} size={20} stroke={1.5} />}
+                        offLabel={<IconMoonStars color={theme.colors.gray[6]} size={20} stroke={1.5} />}
+                    />
                 </Group>
             </Container>
         </Header>
