@@ -1,10 +1,9 @@
-import './home.scss';
-import { Paper, Text } from "@mantine/core";
+import { Paper } from "@mantine/core";
 import { DefaultHeader } from "../../components/Header";
 import { HeroDots } from "../../components/Hero/HeroDots";
+import { Card } from "react-pay-card";
 import Fullpage, { FullPageSections, FullpageSection } from '@ap.cx/react-fullpage';
 import { useStyles } from './style';
-import { CardSection } from '../CardSection';
 
 export function Home() {
   const { classes } = useStyles();
@@ -21,7 +20,15 @@ export function Home() {
             </FullpageSection>
 
             <FullpageSection>
-              <CardSection />
+              <div className={ classes.card }>
+                <Card
+                  cardCvv='000'
+                  cardHolder='JOHN DOE'
+                  cardMonth='12'
+                  cardYear='2026'
+                  cardNumber='0000 0000 0000 0000'
+                />
+              </div>
             </FullpageSection>
 
           </FullPageSections>
