@@ -8,6 +8,8 @@ import {
     Text,
     Anchor,
     Container,
+    Stack,
+    Image,
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { useForm } from '@mantine/form';
@@ -35,17 +37,21 @@ export function Register() {
         },
     })
 
-    console.log("Register: ",form.values)
+    console.log("Register: ", form.values)
     console.log("Form changed to: ", form.getInputProps("password"))
 
     return (
         <div className={classes.wrapper}>
             <Container className={classes.root}>
-                <Paper className={classes.form}  radius={0} p={40} shadow="xs">
+                <Paper className={classes.form} radius={0} p={40} shadow="xs">
 
-                    <Title order={2} className={classes.title} align="center" mt="md" mb={50}>
-                        Dino Bank
-                    </Title>
+                    <Stack align="center" spacing={0} >
+                        <Image width={64} height={64} src="/icons/dino.svg" />
+
+                        <Title order={2} className={classes.title} align="center" mt="md" mb={50}>
+                            Dino Bank
+                        </Title>
+                    </Stack>
 
                     <form onSubmit={form.onSubmit((values) => console.log(values))}>
                         <TextInput withAsterisk label="First Name" placeholder="First Name" size="md"
@@ -53,12 +59,12 @@ export function Register() {
 
                         <TextInput withAsterisk label="Email address" placeholder="example@gmail.com" mt="md" size="md"
                             {...form.getInputProps('email')} />
-                        
-                        <PasswordStregthMeter form={form}/>
-                    
+
+                        <PasswordStregthMeter form={form} />
+
                         <PasswordInput withAsterisk label="Confirm Password" placeholder="Confirm a password" mt="md" size="md"
                             {...form.getInputProps('confirmPassword')} />
-                        
+
                         <Checkbox label="I Accept the Terms of Use & Privacy Policy." mt="xl" size="md" />
                         <Button type="submit" fullWidth mt="xl" size="md">
                             Register

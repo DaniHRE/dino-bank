@@ -9,6 +9,9 @@ import {
     Anchor,
     Container,
     Group,
+    Image,
+    Flex,
+    Stack
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
 
@@ -21,9 +24,13 @@ export function Login() {
             <Container className={classes.root}>
                 <Paper className={classes.form} radius={0} p={40} shadow="xs">
 
-                    <Title order={2} className={classes.title} align="center" mt="md" mb={50}>
-                        Dino Bank
-                    </Title>
+                    <Stack align="center" spacing={0} >
+                        <Image width={64} height={64} src="/icons/dino.svg" />
+
+                        <Title order={2} className={classes.title} align="center" mt="md" mb={50}>
+                            Dino Bank
+                        </Title>
+                    </Stack>
 
                     <TextInput label="Email address" placeholder="example@gmail.com" size="md" />
                     <PasswordInput label="Password" placeholder="Your password" mt="md" size="md" />
