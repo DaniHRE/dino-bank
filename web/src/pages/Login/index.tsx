@@ -10,7 +10,6 @@ import {
     Container,
     Group,
     Image,
-    Flex,
     Stack
 } from '@mantine/core';
 import { Link } from 'react-router-dom';

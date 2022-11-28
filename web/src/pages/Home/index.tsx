@@ -1,5 +1,5 @@
 import { Paper } from "@mantine/core";
-import { DefaultHeader } from "../../components/Header";
+import { HeaderDefault } from "../../components/Headers/HeaderDefault";
 import { HeroDots } from "../../components/Hero/HeroDots";
 import { Card } from "react-pay-card";
 import Fullpage, { FullPageSections, FullpageSection } from '@ap.cx/react-fullpage';
@@ -15,7 +15,7 @@ export function Home() {
           <FullPageSections>
 
             <FullpageSection>
-              <DefaultHeader />
+              <HeaderDefault />
               <HeroDots />
             </FullpageSection>
 
