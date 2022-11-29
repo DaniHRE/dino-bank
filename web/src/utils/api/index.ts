@@ -6,6 +6,7 @@ const baseURL = 'http://localhost:8000/api/'
 const instance = axios.create({
     baseURL: baseURL,
     timeout: 15000,
+    withCredentials: true,
 });
 
 const postInstance = axios.create({
@@ -26,6 +27,7 @@ const requests = {
 export const Auth = {
     login: (credentials: IAuth): Promise<IAuth> => requests.post('login', credentials),
     register: (credentials: IAuthPost): Promise<IAuthPost> => requests.post('register', credentials),
-    refresh: (): Promise<any> => requests.post('refresh'),
-    user: (config: {}): Promise<any> => requests.get('user', config)
+    refresh: (): Promise<IAuth> => requests.post('refresh'),
+    user: (): Promise<IAuth> => requests.get('user'),
+    logout: (): Promise<IAuth> => requests.post('logout'),
 };
