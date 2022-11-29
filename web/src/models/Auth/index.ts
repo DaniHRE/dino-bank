@@ -7,6 +7,11 @@ export interface IAuth {
     transactions: any[];
 }
 
+export interface IAuthLogin {
+    email: string,
+    password: string
+}
+
 export interface IAuthPost {
 
 }
