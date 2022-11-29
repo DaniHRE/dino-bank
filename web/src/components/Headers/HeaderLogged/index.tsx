@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     Container,
     Avatar,
@@ -18,9 +18,11 @@ import {
 } from '@tabler/icons';
 import { useStyles } from './style';
 import { BrandText } from '../../BrandText';
+import { Auth } from '../../../utils/api';
+import { useNavigate } from 'react-router-dom';
 
 interface HeaderTabsProps {
-    user: { name: string; image: string };
+    user: { name?: string; image?: string };
     tabs: string[];
 }
 
@@ -29,11 +31,18 @@ export function HeaderLogged({ user, tabs }: HeaderTabsProps) {
     const [opened, { toggle }] = useDisclosure(false);
     const [userMenuOpened, setUserMenuOpened] = useState(false);
 
+    const navigate = useNavigate();
+
     const items = tabs.map((tab) => (
         <Tabs.Tab value={tab} key={tab}>
             {tab}
         </Tabs.Tab>
     ));
+
+    const logout = () => {
+        Auth.logout();
+        navigate('/');
+    }
 
     return (
         <div className={classes.header}>
@@ -69,7 +78,7 @@ export function HeaderLogged({ user, tabs }: HeaderTabsProps) {
                             <Menu.Item icon={<IconLogout size={14} stroke={1.5} />}>Logout</Menu.Item>
                             <Menu.Divider />
                             <Menu.Label>Danger zone</Menu.Label>
-                            <Menu.Item color="red" icon={<IconTrash size={14} stroke={1.5} />}>
+                            <Menu.Item onClick={logout} color="red" icon={<IconTrash size={14} stroke={1.5} />}>
                                 Delete account
                             </Menu.Item>
                         </Menu.Dropdown>
