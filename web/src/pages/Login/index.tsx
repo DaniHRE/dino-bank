@@ -52,18 +52,14 @@ export function Login() {
                     <Stack align="center" spacing={0} >
                         <Image width={64} height={64} src="/icons/dino.svg" />
 
-                        <Title order={2} className={classes.title} align="center" mt="md" mb={50}>
+                        <Title order={2} className={classes.title} align="center" mt="md" mb={20}>
                             Dino Bank
                         </Title>
                     </Stack>
 
-                    {
-                        submitError ? (
-                            <Transition transition="pop" mounted={submitError} duration={400} timingFunction="ease">
-                                {(styles) => <div style={styles}> Credentials didn't match </div>}
-                            </Transition>
-                        ) : null
-                    }
+                    <Transition transition="pop" mounted={submitError} duration={400} timingFunction="ease">
+                        {(styles) => <div style={styles}> Incorrect username and password </div>}
+                    </Transition>
 
                     <form onSubmit={form.onSubmit((values) => login(values))}>
                         <TextInput required withAsterisk label="Email address" placeholder="example@gmail.com" size="md"
