@@ -17,11 +17,6 @@ export function Principal() {
     }
 
     useEffect(() => {
-        // const token = await fetch('http://localhost:8000/api/logout', {
-        //     method: 'POST',
-        //     headers: {"Content-type": "application/json; charset=UTF-8"}
-        // })
-
         // const cavalo = await fetch('http://localhost:8000/api/login', {
         //     method: 'POST',
         //     headers: { 'Content-Type': 'application/json' },
