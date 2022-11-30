@@ -1,22 +1,17 @@
 import {
     AppShell,
-    Navbar,
-    Header,
     Footer,
-    Aside,
-    Text,
-    MediaQuery,
-    Burger,
     useMantineTheme,
-  } from '@mantine/core';
+} from '@mantine/core';
+import { HeaderLogged } from "../../components/Headers/HeaderLogged";
+import { NavbarMinimal } from "../../components/NavbarMinimal";
+import { ActionsGrid } from "../../components/ActionsGrid";
+import { FooterCentered } from '../../components/Footer';
 import { useEffect, useState } from "react";
 import { Auth } from "../../utils/api";
-import { ActionsGrid } from "../../components/ActionsGrid";
-import { HeaderLogged } from "../../components/Headers/HeaderLogged";
 import { useStyles } from "./style";
 import { IAuth } from "src/models/Auth";
 import { useNavigate } from "react-router-dom";
-import { NavbarMinimal } from "../../components/NavbarMinimal";
 
 export function Principal() {
     const { classes } = useStyles();
@@ -45,9 +40,9 @@ export function Principal() {
                     },
                 }}
                 navbarOffsetBreakpoint="sm"
-                // asideOffsetBreakpoint="sm"
+                asideOffsetBreakpoint="sm"
                 navbar={
-                    <NavbarMinimal />
+                        <NavbarMinimal hidden={opened}/>
                 }
                 // aside={
                 //     <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
@@ -57,8 +52,8 @@ export function Principal() {
                 //     </MediaQuery>
                 // }
                 footer={
-                    <Footer height={60} p="md">
-                        Footer
+                    <Footer height={60}>
+                        <FooterCentered links={[]} />
                     </Footer>
                 }
                 header={
