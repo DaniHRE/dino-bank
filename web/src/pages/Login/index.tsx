@@ -17,7 +17,7 @@ import { showNotification } from '@mantine/notifications';
 import { Link, useNavigate } from 'react-router-dom';
 import { IAuthLogin } from 'src/models/Auth';
 import { Auth } from '../../utils/api';
-import { IconX } from '@tabler/icons';
+import { IconX, IconCheck } from '@tabler/icons';
 
 import { useStyles } from './style';
 
@@ -39,7 +39,15 @@ export function Login() {
 
     async function login(credentials: IAuthLogin) {
         await Auth.login(credentials)
-            .then(() => navigate('/principal'))
+            .then(() => {
+                navigate('/principal');
+                showNotification({
+                    title: 'Sucess',
+                    message: 'Successfully logged in',
+                    icon: <IconCheck />,
+                    color: 'green'
+                })
+            })
             .catch(() => showNotification({
                 title: 'Something wrong',
                 message: 'Email or password invalid',
