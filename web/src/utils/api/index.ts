@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { IAuth, IAuthLogin, IAuthPost } from '../../models/Auth';
+import { IAuth, IAuthLogin, IAuthRegister,IAuthPost } from '../../models/Auth';
 
 const baseURL = 'http://localhost:8000/api/'
 
@@ -26,7 +26,7 @@ const requests = {
 
 export const Auth = {
     login: (credentials: IAuthLogin): Promise<IAuth> => requests.post('login', credentials),
-    register: (credentials: IAuthPost): Promise<IAuthPost> => requests.post('register', credentials),
+    register: (credentials: IAuthRegister): Promise<IAuthRegister> => requests.post('register', credentials),
     refresh: (): Promise<IAuth> => requests.post('refresh'),
     user: (): Promise<IAuth> => requests.get('user'),
     logout: (): Promise<IAuth> => requests.post('logout'),

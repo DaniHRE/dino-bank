@@ -23,21 +23,14 @@ import { useNavigate } from 'react-router-dom';
 
 interface HeaderTabsProps {
     user: { name?: string; image?: string };
-    tabs: string[];
 }
 
-export function HeaderLogged({ user, tabs }: HeaderTabsProps) {
+export function HeaderLogged({ user }: HeaderTabsProps) {
     const { classes, theme, cx } = useStyles();
     const [opened, { toggle }] = useDisclosure(false);
     const [userMenuOpened, setUserMenuOpened] = useState(false);
 
     const navigate = useNavigate();
-
-    const items = tabs.map((tab) => (
-        <Tabs.Tab value={tab} key={tab}>
-            {tab}
-        </Tabs.Tab>
-    ));
 
     const logout = () => {
         Auth.logout();
@@ -74,11 +67,11 @@ export function HeaderLogged({ user, tabs }: HeaderTabsProps) {
                         </Menu.Target>
                         <Menu.Dropdown>
                             <Menu.Label>Settings</Menu.Label>
-                            <Menu.Item icon={<IconUserCircle size={14} stroke={1.5} />}>Profile</Menu.Item>
-                            <Menu.Item icon={<IconLogout size={14} stroke={1.5} />}>Logout</Menu.Item>
+                            <Menu.Item  onClick={() => console.log('Profile')} icon={<IconUserCircle size={14} stroke={1.5} />}>Profile</Menu.Item>
+                            <Menu.Item  onClick={logout} icon={<IconLogout size={14} stroke={1.5} />}>Logout</Menu.Item>
                             <Menu.Divider />
                             <Menu.Label>Danger zone</Menu.Label>
-                            <Menu.Item onClick={logout} color="red" icon={<IconTrash size={14} stroke={1.5} />}>
+                            <Menu.Item color="red" icon={<IconTrash size={14} stroke={1.5} />}>
                                 Delete account
                             </Menu.Item>
                         </Menu.Dropdown>

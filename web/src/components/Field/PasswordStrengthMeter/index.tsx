@@ -6,7 +6,8 @@ import { IconCircleCheck, IconPlaystationX } from "@tabler/icons";
 
 interface PasswordStrengthMeterProps {
     form: UseFormReturnType<{
-        name: string;
+        first_name: string;
+        last_name: string;
         email: string;
         password: string;
         confirmPassword: string;
@@ -40,8 +41,6 @@ export function PasswordStregthMeter({ form }: PasswordStrengthMeterProps) {
     const checks = requirements.map((requirement, index) => (
         <PasswordRequirement key={index} label={requirement.label} meets={requirement.regex.test(value)} />
     ));
-
-    console.log("Component: ", form.values);
 
     return (
         <Popover opened={popoverOpened} position="bottom" width="target" transition="pop">

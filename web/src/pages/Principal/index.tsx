@@ -17,22 +17,10 @@ export function Principal() {
     }
 
     useEffect(() => {
-        // const cavalo = await fetch('http://localhost:8000/api/login', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     credentials: 'include',
-        //     body: JSON.stringify({
-        //         email: 'a@a.com',
-        //         password: 'a'
-        //     })
-        // });
-
-        // console.log(cavalo)
-
         getUser()
     }, []);
 
     return (
-        <HeaderLogged user={{ name: userData?.first_name, image: "" }} tabs={[]} />
+        <HeaderLogged user={{ name: userData?.first_name, image: "" }} />
     )
 }
