@@ -1,6 +1,10 @@
 import { createStyles } from "@mantine/core";
 
 export const useStyles = createStyles((theme) => ({
+    root: {
+
+    },
+
     link: {
       width: 50,
       height: 50,

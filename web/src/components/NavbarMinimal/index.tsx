@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navbar, Tooltip, UnstyledButton, Stack } from '@mantine/core';
+import { Navbar, Tooltip, UnstyledButton, Stack, Container, Group } from '@mantine/core';
 import {
   TablerIcon,
   IconHome2,
@@ -12,6 +12,10 @@ import { useStyles } from './style';
 import { Auth } from '../../utils/api';
 import { useNavigate } from 'react-router-dom';
 
+
+interface NavbarMinimalProps {
+  hidden?: boolean;
+}
 interface NavbarLinkProps {
   icon: TablerIcon;
   label: string;
@@ -36,7 +40,8 @@ const mockdata = [
   { icon: IconSettings, label: 'Settings' },
 ];
 
-export function NavbarMinimal() {
+export function NavbarMinimal({ hidden }: NavbarMinimalProps) {
+  const { classes, cx } = useStyles();
   const [active, setActive] = useState(0);
   const navigate = useNavigate();
 
@@ -55,7 +60,7 @@ export function NavbarMinimal() {
   ));
 
   return (
-    <Navbar height={850} width={{ base: 80 }} p="md"> 
+    <Navbar p="md" hiddenBreakpoint="sm" hidden={!hidden} width={{ sm: 80, lg: 85 }}>
       <Navbar.Section grow mt={50}>
         <Stack justify="center" spacing={0}>
           {links}
