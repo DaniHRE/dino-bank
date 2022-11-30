@@ -10,21 +10,20 @@ import {
     Container,
     Group,
     Image,
-    Stack,
-    Transition
+    Stack
 } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { useState } from 'react';
+import { showNotification } from '@mantine/notifications';
 import { Link, useNavigate } from 'react-router-dom';
 import { IAuthLogin } from 'src/models/Auth';
 import { Auth } from '../../utils/api';
+import { IconX } from '@tabler/icons';
 
 import { useStyles } from './style';
 
 export function Login() {
     const navigate = useNavigate();
     const { classes } = useStyles();
-    const [submitError, setSubmitError] = useState(false);
 
     const form = useForm({
         initialValues: {
@@ -41,13 +40,18 @@ export function Login() {
     async function login(credentials: IAuthLogin) {
         await Auth.login(credentials)
             .then(() => navigate('/principal'))
-            .catch(() => setSubmitError(true))
+            .catch(() => showNotification({
+                title: 'Something wrong',
+                message: 'Email or password invalid',
+                icon: <IconX />,
+                color: 'red',
+            }))
     }
 
     return (
         <div className={classes.wrapper}>
             <Container className={classes.root}>
-                <Paper className={classes.form} radius={0} p={40} shadow="xs">
+                <Paper className={classes.form} radius={10} p={40} shadow="lg">
 
                     <Stack align="center" spacing={0} >
                         <Image width={64} height={64} src="/icons/dino.svg" />
@@ -56,10 +60,6 @@ export function Login() {
                             Dino Bank
                         </Title>
                     </Stack>
-
-                    <Transition transition="pop" mounted={submitError} duration={400} timingFunction="ease">
-                        {(styles) => <div style={styles}> Incorrect username and password </div>}
-                    </Transition>
 
                     <form onSubmit={form.onSubmit((values) => login(values))}>
                         <TextInput required withAsterisk label="Email address" placeholder="example@gmail.com" size="md"
