@@ -11,7 +11,7 @@ export function HeaderDefault() {
     const theme = useMantineTheme();
 
     return (
-        <Header height={56}>
+        <Header height={60}>
             <Container className={classes.inner}>
                 <Burger opened={opened} onClick={toggle} size="sm" className={classes.burger} />
                 <Group className={classes.links} spacing={5}>
