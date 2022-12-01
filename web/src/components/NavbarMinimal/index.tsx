@@ -10,8 +10,9 @@ import {
   IconSwitchHorizontal,
 } from '@tabler/icons';
 import { useStyles } from './style';
-import { Auth } from '../../utils/api';
+import { Auth } from '../../utils/api/api';
 import { useNavigate, Link } from 'react-router-dom';
+import { showNotification } from '@mantine/notifications';
 
 
 interface NavbarMinimalProps {
@@ -48,9 +49,15 @@ export function NavbarMinimal({ hidden }: NavbarMinimalProps) {
   const [active, setActive] = useState(0);
   const navigate = useNavigate();
 
-  const logout = () => {
-    Auth.logout();
+  const logout = async () => {
+    await Auth.logout();
     navigate('/');
+    showNotification({
+      title: 'Sucess',
+      message: 'Successfully logged out',
+      icon: <IconLogout width={18} height={18} />,
+      color: 'yellow'
+  })
   }
 
   const links = mockdata.map((link, index) => (

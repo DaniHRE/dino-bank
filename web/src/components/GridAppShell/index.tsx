@@ -8,7 +8,7 @@ import { Profile } from "../../pages/Profile";
 import { NavbarMinimal } from "../NavbarMinimal";
 import { FooterCentered } from '../Footer';
 import { useEffect, useState } from "react";
-import { Auth } from "../../utils/api";
+import { Auth } from "../../utils/api/api";
 import { useStyles } from "./style";
 import { IAuth } from "../../models/Auth";
 import { Route, Routes, useNavigate } from "react-router-dom";
