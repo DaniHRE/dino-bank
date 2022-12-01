@@ -1,9 +1,18 @@
+export interface Bankaccount {
+    id:                  number;
+    date:                Date;
+    account_type:        string;
+    user:                number;
+    account_balance:     number;
+    accounttransactions: any[];
+}
+
 export interface IAuth {
     id: number;
     first_name: string;
     last_name: string;
     email: string;
-    bankaccount: any[];
+    bankaccount:  Bankaccount[];
     transactions: any[];
 }
 
