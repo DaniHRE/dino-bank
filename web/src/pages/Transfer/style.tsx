@@ -44,4 +44,23 @@ export const useStyles = createStyles((theme) => ({
             maxWidth: '100%',
         },
     },
+
+    form: {
+        borderRight: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[3]
+            }`,
+        width: 450,
+        maxWidth: 450,
+        paddingTop: 80,
+
+        [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+            width: '100vw',
+            height: '100vh',
+            maxWidth: '100%',
+        },
+    },
+
+    title: {
+        color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+        fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    },
 }));
