@@ -1,9 +1,9 @@
 export interface Bankaccount {
-    id:                  number;
-    date:                Date;
-    account_type:        string;
-    user:                number;
-    account_balance:     number;
+    id: number;
+    date: Date;
+    account_type: string;
+    user: number;
+    account_balance: number;
     accounttransactions: any[];
 }
 
@@ -12,7 +12,7 @@ export interface IAuth {
     first_name: string;
     last_name: string;
     email: string;
-    bankaccount:  Bankaccount[];
+    bankaccount: Bankaccount[];
     transactions: any[];
 }
 
@@ -28,7 +28,9 @@ export interface IAuthRegister {
     password: string;
 }
 
-export interface IAuthPost {
-
+export interface IAuthTransfer {
+    account_type: string;
+    user: string;
+    transaction_type: string;
+    transaction_amount: string;
 }
-
