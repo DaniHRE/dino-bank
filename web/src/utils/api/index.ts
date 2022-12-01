@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { IAuth, IAuthLogin, IAuthRegister,IAuthPost } from '../../models/Auth';
+import { IAuth, IAuthLogin, IAuthRegister } from '../../models/Auth';
 
 const baseURL = 'http://localhost:8000/api/'
 

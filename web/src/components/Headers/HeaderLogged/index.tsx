@@ -2,12 +2,8 @@ import { useEffect, useState } from 'react';
 import {
     Container,
     Avatar,
-    UnstyledButton,
     Group,
     Text,
-    Menu,
-    Tabs,
-    Burger,
     Header,
 } from '@mantine/core';
 import { useStyles } from './style';
