@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Auth } from "../../utils/api";
+import { Auth } from "../../utils/api/api";
 import { IAuth } from "src/models/Auth";
 import { useNavigate } from "react-router-dom";
 import { GridAppShell } from '../../components/GridAppShell';

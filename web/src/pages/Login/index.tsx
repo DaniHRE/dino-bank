@@ -16,7 +16,7 @@ import { useForm } from '@mantine/form';
 import { showNotification } from '@mantine/notifications';
 import { Link, useNavigate } from 'react-router-dom';
 import { IAuthLogin } from 'src/models/Auth';
-import { Auth } from '../../utils/api';
+import { Auth } from '../../utils/api/api';
 import { IconX, IconCheck } from '@tabler/icons';
 
 import { useStyles } from './style';

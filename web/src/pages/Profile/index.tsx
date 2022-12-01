@@ -1,6 +1,6 @@
 import { ActionIcon, Anchor, Avatar, Button, Card, Container, Group, Image, Paper, Stack, Text, TextInput, Title } from "@mantine/core"
 import { useEffect, useState } from "react";
-import { Auth } from "../../utils/api";
+import { Auth } from "../../utils/api/api";
 import { IAuth } from "../../models/Auth"
 import { useStyles } from "./style";
 import { useNavigate } from "react-router-dom";

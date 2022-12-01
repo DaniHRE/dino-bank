@@ -17,7 +17,7 @@ import { useForm } from '@mantine/form';
 
 import { useStyles } from './style';
 import { PasswordStregthMeter } from '../../components/Field/PasswordStrengthMeter/index';
-import { Auth } from '../../utils/api';
+import { Auth } from '../../utils/api/api';
 import { IAuthRegister } from '../../models/Auth';
 import { showNotification } from '@mantine/notifications';
 import { IconCheck, IconX } from '@tabler/icons';
