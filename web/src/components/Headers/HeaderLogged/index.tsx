@@ -18,7 +18,7 @@ export function HeaderLogged({ user }: HeaderTabsProps) {
 
     return (
         <Header height={60}>
-            <Container className={classes.inner}>
+            <Group pl={20} pr={50} className={classes.inner}>
                 <BrandText />
                 <Group spacing={7}>
                     <Avatar src={user.image} alt={user.name} radius="xl" size={35} />
@@ -26,7 +26,7 @@ export function HeaderLogged({ user }: HeaderTabsProps) {
                         {user.name}
                     </Text>
                 </Group>
-            </Container>
+            </Group>
         </Header>
     );
 }

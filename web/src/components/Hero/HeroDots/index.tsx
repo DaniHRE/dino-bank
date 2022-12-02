@@ -1,4 +1,5 @@
 import { Container, Grid, Text, } from '@mantine/core';
+import { Card } from 'react-pay-card';
 import { StatsRing } from '../../Stats/StatsProgress';
 import { useStyles } from './style';
 
@@ -10,7 +11,7 @@ export function HeroDots() {
                 <Grid.Col xs={12}>
                     <h1 className={classes.title}>
                         Work With Your{' '}
-                        <Text component="span" variant="gradient" gradient={{ from: 'blue', to: 'cyan', deg: 45  }} inherit>
+                        <Text component="span" variant="gradient" gradient={{ from: 'blue', to: 'cyan', deg: 45 }} inherit>
                             Money.
                         </Text>{' '}
                     </h1>
