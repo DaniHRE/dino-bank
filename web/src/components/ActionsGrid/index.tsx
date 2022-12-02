@@ -9,8 +9,13 @@ import {
   IconCashBanknote,
   IconCoin,
 } from '@tabler/icons';
-import { Card, Text, SimpleGrid, UnstyledButton, Anchor, Group } from '@mantine/core';
+import { Card, Text, SimpleGrid, UnstyledButton, Anchor, Group, Container, Paper, Stack } from '@mantine/core';
 import { useStyles } from './style';
+import { IAuth } from '../../models/Auth';
+
+interface ActionsGridProps {
+  userData: IAuth | undefined;
+}
 
 const mockdata = [
   { title: 'Credit cards', icon: IconCreditCard, color: 'violet' },
@@ -24,7 +29,7 @@ const mockdata = [
   { title: 'Cashback', icon: IconCashBanknote, color: 'orange' },
 ];
 
-export function ActionsGrid() {
+export function ActionsGrid({ userData }: ActionsGridProps) {
   const { classes, theme } = useStyles();
 
   const items = mockdata.map((item) => (
@@ -37,16 +42,20 @@ export function ActionsGrid() {
   ));
 
   return (
-    <Card withBorder radius="md" className={classes.card}>
-      <Group position="apart">
-        <Text className={classes.title}>Services</Text>
-        <Anchor size="xs" color="dimmed" sx={{ lineHeight: 1 }}>
-          + Infinite other services
-        </Anchor>
-      </Group>
-      <SimpleGrid cols={3} mt="md">
-        {items}
-      </SimpleGrid>
-    </Card>
+    <Container className={classes.root}>
+      <Paper className={classes.paper} radius={10} p={40} shadow={'md'} >
+        <Card withBorder radius="md" className={classes.card}>
+          <Group position="apart">
+            <Text className={classes.title}>Services</Text>
+            <Anchor size="xs" color="dimmed" sx={{ lineHeight: 1 }}>
+              + Infinite other services
+            </Anchor>
+          </Group>
+          <SimpleGrid cols={3} mt="md">
+            {items}
+          </SimpleGrid>
+        </Card>
+      </Paper>
+    </Container>
   );
 }

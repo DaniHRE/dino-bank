@@ -1,6 +1,47 @@
 import { createStyles } from "@mantine/core";
 
 export const useStyles = createStyles((theme) => ({
+    root: {
+        display: 'flex',
+        justifyContent: 'center',
+        height: '100%',
+        width: '100%',
+
+        [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+            paddingLeft: 0,
+            paddingRight: 0,
+        },
+    },
+
+    paper: {
+        borderRight: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[3]
+            }`,
+        height: '100%',
+        width: '100%',
+        maxWidth: '100%',
+        paddingTop: 80,
+        display: 'flex',
+        flexDirection: 'column',
+
+        [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+            width: '100vw',
+            height: '100vh',
+            maxWidth: '100%',
+        },
+    },
+
+    mainTitle: {
+        color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+        fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+        fontSize: 22,
+        lineHeight: 1.2,
+        fontWeight: 900,
+
+        [theme.fn.smallerThan('xs')]: {
+            fontSize: 28,
+        },
+    },
+
     card: {
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
     },

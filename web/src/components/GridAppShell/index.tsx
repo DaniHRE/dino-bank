@@ -24,8 +24,8 @@ export function GridAppShell() {
     const [opened, setOpened] = useState(false);
     const [active, setActive] = useState(0);
 
-    const getUser = () => {
-        Auth.user()
+    async function getUser() {
+        await Auth.user()
             .then(data => setUserData(data))
             .catch(error => navigate('/'))
     }
@@ -57,7 +57,7 @@ export function GridAppShell() {
                 }
             >
                 <Routes>
-                    <Route path="/" element={<ActionsGrid/>} />
+                    <Route path="/" element={<ActionsGrid data={userData}/>} />
                     <Route path="transfer" element={<Transfer />} />
                     <Route path="profile" element={<Profile data={userData} />} />
                     <Route path="settings" element={<h1> BBBBBBBBBBBBB</h1>} />
