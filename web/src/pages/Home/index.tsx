@@ -1,10 +1,8 @@
-import { Button, Group, Paper, Stack } from "@mantine/core";
+import { Button, Container, Paper, Transition } from "@mantine/core";
 import { HeaderDefault } from "../../components/Headers/HeaderDefault";
-import { HeroDots } from "../../components/Hero/HeroDots";
-import { Card } from "react-pay-card";
-import Fullpage, { FullPageSections, FullpageSection } from '@ap.cx/react-fullpage';
 import { useStyles } from './style';
 import { useNavigate } from "react-router-dom";
+import { FeatureSections } from "../../components/FeatureSection";
 
 export function Home() {
   const { classes } = useStyles();
@@ -13,38 +11,26 @@ export function Home() {
   return (
     <div className="App">
       <Paper radius={0} style={{ minHeight: "100vh" }}>
-        <Fullpage>
-          <FullPageSections>
+        <HeaderDefault />
+        <Transition mounted={true} transition="fade" duration={400} timingFunction="ease">
+          {(styles) => <div style={styles}>Your modal
 
-            <FullpageSection>
-              <HeaderDefault />
-              <HeroDots />
-            </FullpageSection>
-
-            <FullpageSection>
-              <Stack align="center"  justify="center" className={classes.card}>
-                <Card
-                  cardCvv='000'
-                  cardHolder='JOHN DOE'
-                  cardMonth='12'
-                  cardYear='2026'
-                  cardNumber='0000 0000 0000 0000'
-                />
-                <Button
-                  mt={50}
-                  radius={10}
-                  variant="light"
-                  size="xl"
-                  gradient={{ from: 'blue', to: 'cyan' }}
-                  onClick={() => navigate('/register')}
-                >
-                  Create your free account
-                </Button>
-              </Stack>
-            </FullpageSection>
-
-          </FullPageSections>
-        </Fullpage>
+            <Container className={classes.root} >
+              <FeatureSections />
+              <Button
+                mt={50}
+                radius={10}
+                variant="light"
+                size="xl"
+                gradient={{ from: 'blue', to: 'cyan' }}
+                onClick={() => navigate('/register')}
+                className={classes.button}
+              >
+                Check this out
+              </Button>
+            </Container>
+          </div>} 
+        </Transition>
       </Paper>
     </div>
   );
