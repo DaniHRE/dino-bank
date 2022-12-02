@@ -1,14 +1,14 @@
-import { Button, Container, Group, Paper, NativeSelect, Title, Menu, Image, UnstyledButton, Text, Select, Stack } from "@mantine/core"
-import { Auth } from "../../utils/api/api";
+import { Button, Container, Group, Paper, NativeSelect, Title, Text, Stack } from "@mantine/core"
 import { Content } from "../../utils/api/content";
 import { IAuth, IAuthTransfer } from "../../models/Auth"
 import { TextInput } from '@mantine/core';
-import { IconCreditCard, IconReportMoney, IconChevronDown, IconReceiptRefund, IconReceipt2 } from '@tabler/icons';
+import { IconCreditCard, IconReportMoney, IconCheck, IconX, IconReceiptRefund, IconReceipt2 } from '@tabler/icons';
 import { useNavigate } from "react-router-dom";
 import { useStyles } from "./style";
 import { useForm } from "@mantine/form";
 import { useState } from "react";
 import { DropdownMenu } from "../../components/DropdownMenu";
+import { showNotification } from "@mantine/notifications";
 
 const currencyValues = [
     { value: 'brl', label: '🇧🇷 BRL' },
@@ -62,7 +62,24 @@ export function Transfer() {
 
     async function transfer(transferData: IAuthTransfer) {
         await Content.transfer(transferData)
-            .then((data) => console.log(data))
+            .then(() => {
+                console.log(transferData)
+                showNotification({
+                    title: 'Sucess',
+                    message: 'Your transaction has been completed successfully',
+                    icon: <IconCheck />,
+                    color: 'green',
+                })
+            })
+            .catch(() => {
+                console.log(transferData)
+                showNotification({
+                    title: 'Something wrong',
+                    message: 'Check your inputs or user new values',
+                    icon: <IconX />,
+                    color: 'red',
+                })
+            })
     }
 
     return (
@@ -76,7 +93,7 @@ export function Transfer() {
 
                     <form onSubmit={form.onSubmit((values) => transfer({
                         ...values,
-                        account_type: selectedAccountType.label.toLowerCase(),
+                        account_type: selectedAccountType.label === 'Savings' ? '1' :'2',
                         transaction_type: selectedTransactionType.label.toLowerCase()
                     }))}>
                         <Group grow>
