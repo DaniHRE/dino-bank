@@ -14,6 +14,9 @@ import { IAuth } from "../../models/Auth";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { ActionsGrid } from '../ActionsGrid';
 import { Transfer } from '../../pages/Transfer';
+import { Cards } from '../../pages/Cards';
+import { Config } from '../../pages/Config';
+import { NotFoundPage } from '../../pages/NotFoundPage';
 
 export function GridAppShell() {
     const { classes } = useStyles();
@@ -40,6 +43,8 @@ export function GridAppShell() {
                 styles={{
                     main: {
                         background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+                        // backgroundImage: 'url(https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-4.0.3&dl=pine-watt-2Hzmz15wGik-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb)',
+        
                     },
                 }}
                 navbarOffsetBreakpoint="sm"
@@ -59,8 +64,10 @@ export function GridAppShell() {
                 <Routes>
                     <Route path="/" element={<ActionsGrid data={userData}/>} />
                     <Route path="transfer" element={<Transfer />} />
+                    <Route path="card" element={<Cards />} />
                     <Route path="profile" element={<Profile data={userData} />} />
-                    <Route path="settings" element={<h1> BBBBBBBBBBBBB</h1>} />
+                    <Route path="settings" element={<Config />} />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </AppShell>
         </div>
