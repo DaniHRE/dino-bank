@@ -4,8 +4,6 @@ export const useStyles = createStyles((theme) => ({
     root: {
         display: 'flex',
         justifyContent: 'center',
-        height: '100%',
-        width: '100%',
 
         [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
             paddingLeft: 0,
@@ -20,8 +18,6 @@ export const useStyles = createStyles((theme) => ({
         width: '100%',
         maxWidth: '100%',
         paddingTop: 80,
-        display: 'flex',
-        flexDirection: 'column',
 
         [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
             width: '100vw',

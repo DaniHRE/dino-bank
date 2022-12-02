@@ -12,28 +12,30 @@ import {
 import { Card, Text, SimpleGrid, UnstyledButton, Anchor, Group, Container, Paper, Stack } from '@mantine/core';
 import { useStyles } from './style';
 import { IAuth } from '../../models/Auth';
+import { useNavigate } from 'react-router-dom';
 
 interface ActionsGridProps {
   userData: IAuth | undefined;
 }
 
 const mockdata = [
-  { title: 'Credit cards', icon: IconCreditCard, color: 'violet' },
-  { title: 'Banks nearby', icon: IconBuildingBank, color: 'indigo' },
-  { title: 'Transfers', icon: IconRepeat, color: 'blue' },
-  { title: 'Refunds', icon: IconReceiptRefund, color: 'green' },
-  { title: 'Receipts', icon: IconReceipt, color: 'teal' },
-  { title: 'Taxes', icon: IconReceiptTax, color: 'cyan' },
-  { title: 'Reports', icon: IconReport, color: 'pink' },
-  { title: 'Payments', icon: IconCoin, color: 'red' },
-  { title: 'Cashback', icon: IconCashBanknote, color: 'orange' },
+  { title: 'Transfers', icon: IconRepeat, color: 'blue', link: 'transfer' },
+  { title: 'Credit cards', icon: IconCreditCard, color: 'violet', link: 'card' },
+  { title: 'Receipts', icon: IconReceipt, color: 'teal', link: '' },
+  { title: 'Payments', icon: IconCoin, color: 'red', link: '' },
+  { title: 'Banks nearby', icon: IconBuildingBank, color: 'indigo', link: '' },
+  { title: 'Refunds', icon: IconReceiptRefund, color: 'green', link: '' },
+  { title: 'Taxes', icon: IconReceiptTax, color: 'cyan', link: '' },
+  { title: 'Reports', icon: IconReport, color: 'pink', link: '' },
+  { title: 'Cashback', icon: IconCashBanknote, color: 'orange', link: '' },
 ];
 
 export function ActionsGrid({ userData }: ActionsGridProps) {
   const { classes, theme } = useStyles();
+  const navigate = useNavigate();
 
   const items = mockdata.map((item) => (
-    <UnstyledButton key={item.title} className={classes.item}>
+    <UnstyledButton onClick={() => navigate(item.link)} key={item.title} className={classes.item}>
       <item.icon color={theme.colors[item.color][6]} size={32} />
       <Text size="xs" mt={7}>
         {item.title}
