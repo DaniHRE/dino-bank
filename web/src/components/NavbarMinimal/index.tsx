@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Navbar, Tooltip, UnstyledButton, Stack } from '@mantine/core';
 import {
+  IconX,
   TablerIcon,
   IconHome2,
   IconUser,
   IconSettings,
   IconLogout,
   IconWallet,
+  IconBrandMastercard,
   IconSwitchHorizontal,
 } from '@tabler/icons';
 import { useStyles } from './style';
@@ -41,12 +43,13 @@ function NavbarLink({ icon: Icon, label, active, onClick, link }: NavbarLinkProp
 
 const mockdata = [
   { icon: IconHome2, label: 'Home', link: '' },
-  { icon: IconWallet, label: 'Wallet', link: 'transfer'},
+  { icon: IconWallet, label: 'Wallet', link: 'transfer' },
+  { icon: IconBrandMastercard, label: 'Card', link: 'card' },
   { icon: IconUser, label: 'Account', link: 'profile' },
   { icon: IconSettings, label: 'Settings', link: 'settings' },
 ];
 
-export function NavbarMinimal({ active, setActive ,hidden }: NavbarMinimalProps) {
+export function NavbarMinimal({ active, setActive, hidden }: NavbarMinimalProps) {
   const { classes, cx } = useStyles();
   const navigate = useNavigate();
 
@@ -58,7 +61,7 @@ export function NavbarMinimal({ active, setActive ,hidden }: NavbarMinimalProps)
       message: 'Successfully logged out',
       icon: <IconLogout width={18} height={18} />,
       color: 'yellow'
-  })
+    })
   }
 
   const links = mockdata.map((link, index) => (
@@ -79,8 +82,15 @@ export function NavbarMinimal({ active, setActive ,hidden }: NavbarMinimalProps)
       </Navbar.Section>
       <Navbar.Section>
         <Stack justify="center" spacing={0}>
-          <NavbarLink icon={IconSwitchHorizontal} link="" label="Change account" />
-          <NavbarLink onClick={logout} icon={IconLogout} link="" label="Logout" />
+          <NavbarLink onClick={() => {
+            showNotification({
+              title: 'Error',
+              message: 'This feature is not implemented yet',
+              icon: <IconX />,
+              color: 'red',
+            });
+          } } icon={IconSwitchHorizontal} label="Change account" link={'/principal/'} />
+          <NavbarLink onClick={logout} icon={IconLogout} link={''} label="Logout"  />
         </Stack>
       </Navbar.Section>
     </Navbar>
