@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NotificationsProvider } from '@mantine/notifications';
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -7,6 +6,7 @@ import { Login } from "./pages/Login";
 import { Principal } from "./pages/Principal";
 import { Register } from "./pages/Register";
 import { useHotkeys, useLocalStorage } from "@mantine/hooks";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 export function Provider() {
     const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -21,13 +21,14 @@ export function Provider() {
     return (
         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
             <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme }} >
-                <NotificationsProvider position="top-center">
+                <NotificationsProvider   position="bottom-right">
                     <BrowserRouter>
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="login" element={<Login />} />
                             <Route path="register" element={<Register />} />
                             <Route path="principal/*" element={<Principal />} />
+                            <Route path="*" element={<NotFoundPage />} />
                         </Routes>
                     </BrowserRouter>
                 </NotificationsProvider>

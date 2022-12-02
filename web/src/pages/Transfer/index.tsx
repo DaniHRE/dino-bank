@@ -75,7 +75,7 @@ export function Transfer() {
                 console.log(transferData)
                 showNotification({
                     title: 'Something wrong',
-                    message: 'Check your inputs or user new values',
+                    message: 'Check transaction fields values.',
                     icon: <IconX />,
                     color: 'red',
                 })

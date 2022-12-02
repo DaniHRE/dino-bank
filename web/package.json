@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ap.cx/react-fullpage": "^0.3.0",
     "@emotion/react": "^11.10.0",
     "@mantine/carousel": "^5.2.0",
     "@mantine/core": "^5.2.0",
