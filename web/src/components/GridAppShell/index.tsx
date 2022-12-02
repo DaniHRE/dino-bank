@@ -22,6 +22,7 @@ export function GridAppShell() {
 
     const theme = useMantineTheme();
     const [opened, setOpened] = useState(false);
+    const [active, setActive] = useState(0);
 
     const getUser = () => {
         Auth.user()
@@ -44,7 +45,7 @@ export function GridAppShell() {
                 navbarOffsetBreakpoint="sm"
                 asideOffsetBreakpoint="sm"
                 navbar={
-                    <NavbarMinimal hidden={opened} />
+                    <NavbarMinimal active={active}  setActive={setActive} hidden={opened} />
                 }
                 footer={
                     <Footer height={60}>

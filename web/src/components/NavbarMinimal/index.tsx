@@ -16,6 +16,8 @@ import { showNotification } from '@mantine/notifications';
 
 
 interface NavbarMinimalProps {
+  active: number;
+  setActive: React.Dispatch<React.SetStateAction<number>>;
   hidden?: boolean;
 }
 interface NavbarLinkProps {
@@ -44,9 +46,8 @@ const mockdata = [
   { icon: IconSettings, label: 'Settings', link: 'settings' },
 ];
 
-export function NavbarMinimal({ hidden }: NavbarMinimalProps) {
+export function NavbarMinimal({ active, setActive ,hidden }: NavbarMinimalProps) {
   const { classes, cx } = useStyles();
-  const [active, setActive] = useState(0);
   const navigate = useNavigate();
 
   const logout = async () => {

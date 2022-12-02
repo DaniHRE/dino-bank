@@ -18,7 +18,9 @@ export function DropdownMenu({ data, setSelected, selected }: DropdownMenuProps)
     const items = data.map((item) => (
         <Menu.Item
             icon={item.image}
-            onClick={() => setSelected(item)}
+            onClick={() => {
+                setSelected(item)
+            }}
             key={item.label}
         >
             {item.label}
