@@ -16,8 +16,8 @@ export function Profile({ data }: ProfileProps) {
     const [userData, setUserData] = useState<IAuth>();
     const [currentBalance, setCurrentBalance] = useState<number>(0);
 
-    const getUser = () => {
-        Auth.user()
+    async function getUser() {
+        await Auth.user()
             .then(data => setUserData(data))
             .catch(error => navigate('/'));
     }
@@ -40,7 +40,7 @@ export function Profile({ data }: ProfileProps) {
 
     useEffect(() => {
         setBalance();
-    }, [setUserData]);
+    }, [userData]);
 
     return (
         <div className={classes.wrapper}>
