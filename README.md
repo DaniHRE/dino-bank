@@ -6,12 +6,12 @@ I'm new to frontend, so not that many skills, so don't expect too much from the 
 
 ## Goals to complete
 
-- [ ] Home page | Partial Complete
-- [ ] Dark Theme Switch + Shortcut Theme Switch
+- [x] Home page | Partial Complete
+- [x] Dark Theme Switch + Shortcut Theme Switch
 - [x] Login
 - [x] Register
-  - [ ] Last Name Field
-  - [ ] Validate Last Name Field
-- [ ] Authentication
-- [ ] Appshell interface
-- [ ] Responsive page
+  - [x] Last Name Field
+  - [x] Validate Last Name Field
+- [x] Authentication
+- [x] Appshell interface
+- [x] Responsive page
