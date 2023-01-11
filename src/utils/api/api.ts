@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { IAuth, IAuthLogin, IAuthRegister } from '../../models/Auth';
 
-const authURL = 'http://localhost:8000/api/'
+const authURL = 'http://srv-captain--asd-banco:8000/api/'
 
 const instance = axios.create({
     baseURL: authURL,
